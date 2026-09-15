@@ -6,3 +6,31 @@ export type SoundType = 'off' | 'mechanical' | 'click' | 'beep' | 'typewriter';
 export type CaretStyle = 'line' | 'block' | 'underline' | 'off';
 export type FontSize = 'small' | 'medium' | 'large';
 
+export type ThemeId =
+  | 'midnight'
+  | 'cyberpunk'
+  | 'nord'
+  | 'sunset'
+  | 'forest'
+  | 'coffee'
+  | 'sakura'
+  | 'dracula'
+  | 'paper';
+
+export interface ThemeConfig {
+  id: ThemeId;
+  name: string;
+  bg: string;
+  cardBg: string;
+  primary: string;
+  primaryLight: string;
+  accent: string;
+  border: string;
+  text: string;
+  textMuted: string;
+  charUntyped: string;
+  charCorrect: string;
+  charIncorrect: string;
+  charExtra: string;
+  caret: string;
+}
