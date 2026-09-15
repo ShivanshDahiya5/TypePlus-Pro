@@ -1,0 +1,6 @@
+{
+  "name": "TypePulse - Typing Speed Test",
+  "description": "Ultra-responsive, zero-latency typing speed test with real-time analytics, multiple modes, and telemetry charts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
