@@ -57,3 +57,26 @@ export interface UserPreferences {
   blindMode: boolean;
   smoothCaret: boolean;
 }
+
+export type CharacterStatus = 'untyped' | 'correct' | 'incorrect' | 'extra';
+
+export interface CharacterState {
+  char: string;
+  status: CharacterStatus;
+}
+
+export interface WordState {
+  original: string;
+  characters: CharacterState[];
+  isCurrent: boolean;
+  isComplete: boolean;
+}
+
+export interface SecondSnapshot {
+  second: number;
+  wpm: number;
+  rawWpm: number;
+  accuracy: number;
+  errors: number;
+  keystrokes: number;
+}
