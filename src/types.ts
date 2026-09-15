@@ -108,3 +108,12 @@ export interface TestResult {
   quoteAuthor?: string;
   isPersonalBest?: boolean;
 }
+
+export interface OverallStats {
+  testsCompleted: number;
+  highestWpm: number;
+  averageWpm: number;
+  averageAccuracy: number;
+  totalTimeTypedSeconds: number;
+  bestRecords: Partial<Record<string, number>>;
+}
