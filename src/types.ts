@@ -34,3 +34,26 @@ export interface ThemeConfig {
   charExtra: string;
   caret: string;
 }
+
+export interface TestSettings {
+  mode: TestMode;
+  timeOption: TimeOption;
+  wordOption: WordOption;
+  quoteLength: QuoteLength;
+  punctuation: boolean;
+  numbers: boolean;
+  customText: string;
+  customTitle: string;
+}
+
+export interface UserPreferences {
+  theme: ThemeId;
+  sound: SoundType;
+  soundVolume: number;
+  caretStyle: CaretStyle;
+  fontSize: FontSize;
+  showLiveStats: boolean;
+  showKeyboard: boolean;
+  blindMode: boolean;
+  smoothCaret: boolean;
+}
