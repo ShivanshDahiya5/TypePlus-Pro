@@ -80,3 +80,31 @@ export interface SecondSnapshot {
   errors: number;
   keystrokes: number;
 }
+
+export interface KeyStat {
+  key: string;
+  errorRate: number;
+  count: number;
+}
+
+export interface TestResult {
+  id: string;
+  timestamp: number;
+  mode: TestMode;
+  modeDescription: string;
+  wpm: number;
+  rawWpm: number;
+  cpm: number;
+  accuracy: number;
+  consistency: number;
+  durationSeconds: number;
+  correctChars: number;
+  incorrectChars: number;
+  extraChars: number;
+  missedChars: number;
+  totalKeystrokes: number;
+  timeline: SecondSnapshot[];
+  problemKeys: KeyStat[];
+  quoteAuthor?: string;
+  isPersonalBest?: boolean;
+}
