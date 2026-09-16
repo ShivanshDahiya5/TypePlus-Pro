@@ -28,3 +28,28 @@ import { ResultsView } from './components/ResultsView';
 import { HistoryModal } from './components/HistoryModal';
 import { CustomTextModal } from './components/CustomTextModal';
 import { KeyboardVisualizer } from './components/KeyboardVisualizer';
+
+export default function App() {
+  // Preferences & Themes
+  const [preferences, setPreferences] = useState<UserPreferences>(() => loadPreferences());
+  const theme = THEMES[preferences.theme] || THEMES.midnight;
+
+  // History & Lifetime Stats
+  const [history, setHistory] = useState<TestResult[]>(() => loadHistory());
+  const [overallStats, setOverallStats] = useState<OverallStats>(() => loadOverallStats());
+
+  // Modals
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [isCustomTextOpen, setIsCustomTextOpen] = useState(false);
+
+  // Test Settings
+  const [settings, setSettings] = useState<TestSettings>({
+    mode: 'time',
+    timeOption: 30,
+    wordOption: 25,
+    quoteLength: 'medium',
+    punctuation: false,
+    numbers: false,
+    customText: '',
+    customTitle: '',
+  });
