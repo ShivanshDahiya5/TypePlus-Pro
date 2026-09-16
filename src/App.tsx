@@ -53,3 +53,18 @@ export default function App() {
     customText: '',
     customTitle: '',
   });
+
+    const [wordsList, setWordsList] = useState<string[]>([]);
+  const [quoteAuthor, setQuoteAuthor] = useState<string | undefined>(undefined);
+  const [testSessionKey, setTestSessionKey] = useState<number>(1);
+
+  // Live HUD States
+  const [liveStats, setLiveStats] = useState<{
+    wpm: number;
+    rawWpm: number;
+    accuracy: number;
+    errorsCount: number;
+    timeRemaining?: number;
+    currentWordIndex: number;
+    totalWords: number;
+    isTestActive: boolean;
