@@ -240,3 +240,26 @@ export default function App() {
             {/* Optional Keyboard Visualizer */}
             {preferences.showKeyboard && <KeyboardVisualizer theme={theme} />}
           </div>
+          ) : (
+          /* Results and Telemetry Analytics Screen */
+          <ResultsView
+            theme={theme}
+            result={currentResult}
+            onNextTest={() => initializeTest()}
+            onRepeatTest={handleRepeatTest}
+            onOpenHistory={() => setIsHistoryOpen(true)}
+          />
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full max-w-5xl mx-auto px-4 py-4 text-center text-xs font-mono opacity-50 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span>TypePulse Engine</span>
+          <span>•</span>
+          <span>Zero-Latency Audio</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <span>Tab + Enter to restart</span>
+        </div>
+      </footer>
