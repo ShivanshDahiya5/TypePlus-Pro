@@ -263,3 +263,24 @@ export default function App() {
           <span>Tab + Enter to restart</span>
         </div>
       </footer>
+
+{/* Modals */}
+      <HistoryModal
+        theme={theme}
+        isOpen={isHistoryOpen}
+        history={history}
+        overallStats={overallStats}
+        onClose={() => setIsHistoryOpen(false)}
+        onClearHistory={handleClearHistory}
+      />
+
+      <CustomTextModal
+        theme={theme}
+        isOpen={isCustomTextOpen}
+        currentCustomText={settings.customText}
+        onClose={() => setIsCustomTextOpen(false)}
+        onApplyCustomText={handleApplyCustomText}
+      />
+    </div>
+  );
+}
