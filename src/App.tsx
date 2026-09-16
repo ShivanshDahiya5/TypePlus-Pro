@@ -68,3 +68,16 @@ export default function App() {
     currentWordIndex: number;
     totalWords: number;
     isTestActive: boolean;
+}>({
+    wpm: 0,
+    rawWpm: 0,
+    accuracy: 100,
+    errorsCount: 0,
+    timeRemaining: 30,
+    currentWordIndex: 0,
+    totalWords: 0,
+    isTestActive: false,
+  });
+
+  // Result state
+  const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
