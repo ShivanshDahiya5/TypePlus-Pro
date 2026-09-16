@@ -169,3 +169,16 @@ export default function App() {
     });
     setTestSessionKey((k) => k + 1);
   };
+
+  return (
+    <div
+      className="min-h-screen w-full flex flex-col justify-between transition-colors duration-150"
+      style={{
+        backgroundColor: theme.bg,
+        color: theme.text,
+      }}
+    >
+      {/* Header Bar */}
+      <Header
+        theme={theme}
+        preferences={preferences}
