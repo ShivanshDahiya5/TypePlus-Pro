@@ -182,3 +182,16 @@ export default function App() {
       <Header
         theme={theme}
         preferences={preferences}
+        onUpdatePreferences={handleUpdatePreferences}
+        onOpenHistory={() => setIsHistoryOpen(true)}
+        onOpenCustomText={() => setIsCustomTextOpen(true)}
+        onResetTest={() => initializeTest()}
+      />
+
+      {/* Main Content Area */}
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-4 flex flex-col justify-center">
+        {!currentResult ? (
+          <div className="w-full">
+            {/* Mode & Configuration Selector */}
+            <ConfigBar
+              theme={theme}
