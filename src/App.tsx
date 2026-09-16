@@ -135,3 +135,21 @@ export default function App() {
     setOverallStats(loadOverallStats());
     setCurrentResult({ ...result, isPersonalBest });
   };
+
+  // Clear history handler
+  const handleClearHistory = () => {
+    clearAllHistory();
+    setHistory([]);
+    setOverallStats(loadOverallStats());
+  };
+
+  // Apply custom text
+  const handleApplyCustomText = (text: string, title?: string) => {
+    const newSettings: Partial<TestSettings> = {
+      mode: 'custom',
+      customText: text,
+      customTitle: title || 'Custom Text',
+    };
+    setSettings((prev) => ({ ...prev, ...newSettings }));
+    initializeTest(newSettings);
+  };
