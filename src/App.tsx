@@ -226,3 +226,17 @@ export default function App() {
               settings={settings}
               wordsList={wordsList}
               quoteAuthor={quoteAuthor}
+              soundType={preferences.sound}
+              soundVolume={preferences.soundVolume}
+              caretStyle={preferences.caretStyle}
+              fontSize={preferences.fontSize}
+              blindMode={preferences.blindMode}
+              smoothCaret={preferences.smoothCaret}
+              onFinishTest={handleFinishTest}
+              onLiveUpdate={setLiveStats}
+              onRestart={() => initializeTest()}
+            />
+
+            {/* Optional Keyboard Visualizer */}
+            {preferences.showKeyboard && <KeyboardVisualizer theme={theme} />}
+          </div>
