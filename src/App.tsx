@@ -153,3 +153,19 @@ export default function App() {
     setSettings((prev) => ({ ...prev, ...newSettings }));
     initializeTest(newSettings);
   };
+
+  // Repeat same test
+  const handleRepeatTest = () => {
+    setCurrentResult(null);
+    setLiveStats({
+      wpm: 0,
+      rawWpm: 0,
+      accuracy: 100,
+      errorsCount: 0,
+      timeRemaining: settings.mode === 'time' ? settings.timeOption : undefined,
+      currentWordIndex: 0,
+      totalWords: wordsList.length,
+      isTestActive: false,
+    });
+    setTestSessionKey((k) => k + 1);
+  };
