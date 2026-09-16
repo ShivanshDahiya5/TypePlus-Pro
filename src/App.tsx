@@ -100,3 +100,21 @@ export default function App() {
         totalWords: words.length,
         isTestActive: false,
       });
+      setTestSessionKey((k) => k + 1);
+    },
+    [settings]
+  );
+
+  // Initial load
+  useEffect(() => {
+    initializeTest();
+  }, []);
+
+  // Update preferences handler
+  const handleUpdatePreferences = (newPrefs: Partial<UserPreferences>) => {
+    setPreferences((prev) => {
+      const updated = { ...prev, ...newPrefs };
+      savePreferences(updated);
+      return updated;
+    });
+  };
