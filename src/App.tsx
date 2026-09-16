@@ -195,3 +195,18 @@ export default function App() {
             {/* Mode & Configuration Selector */}
             <ConfigBar
               theme={theme}
+              settings={settings}
+              isTestActive={liveStats.isTestActive}
+              onUpdateSettings={handleUpdateSettings}
+              onResetTest={() => initializeTest()}
+              onOpenCustomText={() => setIsCustomTextOpen(true)}
+            />
+
+            {/* Real-time Live Stats HUD */}
+            {preferences.showLiveStats && (
+              <LiveStats
+                theme={theme}
+                wpm={liveStats.wpm}
+                rawWpm={liveStats.rawWpm}
+                accuracy={liveStats.accuracy}
+                errorsCount={liveStats.errorsCount}
