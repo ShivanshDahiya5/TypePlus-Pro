@@ -210,3 +210,19 @@ export default function App() {
                 rawWpm={liveStats.rawWpm}
                 accuracy={liveStats.accuracy}
                 errorsCount={liveStats.errorsCount}
+                timeRemaining={liveStats.timeRemaining}
+                totalTime={settings.mode === 'time' ? settings.timeOption : undefined}
+                currentWordIndex={liveStats.currentWordIndex}
+                totalWords={wordsList.length}
+                mode={settings.mode}
+                isTestActive={liveStats.isTestActive}
+              />
+            )}
+
+            {/* Core Interactive Typing Engine */}
+            <TypingEngine
+              key={testSessionKey}
+              theme={theme}
+              settings={settings}
+              wordsList={wordsList}
+              quoteAuthor={quoteAuthor}
