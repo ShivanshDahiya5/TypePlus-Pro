@@ -81,3 +81,22 @@ export default function App() {
 
   // Result state
   const [currentResult, setCurrentResult] = useState<TestResult | null>(null);
+
+  // Regenerate test text
+  const initializeTest = useCallback(
+    (customSettings?: Partial<TestSettings>) => {
+      const activeSettings = { ...settings, ...customSettings };
+      const { words, quoteAuthor: author } = generateTestText(activeSettings);
+      setWordsList(words);
+      setQuoteAuthor(author);
+      setCurrentResult(null);
+      setLiveStats({
+        wpm: 0,
+        rawWpm: 0,
+        accuracy: 100,
+        errorsCount: 0,
+        timeRemaining: activeSettings.mode === 'time' ? activeSettings.timeOption : undefined,
+        currentWordIndex: 0,
+        totalWords: words.length,
+        isTestActive: false,
+      });
