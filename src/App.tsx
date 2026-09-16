@@ -118,3 +118,20 @@ export default function App() {
       return updated;
     });
   };
+
+  // Update test settings handler
+  const handleUpdateSettings = (newSettings: Partial<TestSettings>) => {
+    setSettings((prev) => {
+      const updated = { ...prev, ...newSettings };
+      initializeTest(updated);
+      return updated;
+    });
+  };
+
+  // Test completion handler
+  const handleFinishTest = (result: TestResult) => {
+    const { updatedHistory, isPersonalBest } = saveTestResult(result);
+    setHistory(updatedHistory);
+    setOverallStats(loadOverallStats());
+    setCurrentResult({ ...result, isPersonalBest });
+  };
