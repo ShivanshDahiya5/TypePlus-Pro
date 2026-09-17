@@ -78,3 +78,11 @@ export function playKeySound(
 
     gain2.gain.setValueAtTime(0.15, now);
     gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
+    osc2.connect(gain2);
+    gain2.connect(masterGain);
+    osc2.start(now);
+    osc2.stop(now + 0.02);
+  } else if (type === 'click') {
+    // Ultra minimal snappy click
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
