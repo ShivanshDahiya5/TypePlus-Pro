@@ -134,3 +134,10 @@ export function playCompletionSound(volume: number = 0.5) {
   if (volume <= 0) return;
   const ctx = getAudioContext();
   if (!ctx) return;
+
+  const now = ctx.currentTime;
+  const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6 chord arpeggio
+  notes.forEach((freq, idx) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const startT = now + idx * 0.06;
