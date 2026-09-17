@@ -141,3 +141,9 @@ export function playCompletionSound(volume: number = 0.5) {
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     const startT = now + idx * 0.06;
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, startT);
+
+    gain.gain.setValueAtTime(volume * 0.25, startT);
+    gain.gain.exponentialRampToValueAtTime(0.001, startT + 0.3);
