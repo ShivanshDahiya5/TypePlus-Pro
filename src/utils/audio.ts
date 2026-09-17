@@ -68,3 +68,13 @@ export function playKeySound(
     gain1.connect(masterGain);
     osc1.start(now);
     osc1.stop(now + 0.035);
+
+    // Subtle click click transient
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = 'square';
+    osc2.frequency.setValueAtTime(1200 + Math.random() * 200, now);
+    osc2.frequency.exponentialRampToValueAtTime(200, now + 0.012);
+
+    gain2.gain.setValueAtTime(0.15, now);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
