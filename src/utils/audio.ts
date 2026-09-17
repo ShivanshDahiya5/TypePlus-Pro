@@ -50,3 +50,11 @@ export function playKeySound(
     osc.stop(now + 0.07);
     return;
   }
+
+  if (type === 'mechanical') {
+    // Crisp mechanical switch click (dual-stage impulse)
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    const baseFreq = isSpace ? 340 : 480 + (Math.random() * 60 - 30);
+
+    osc1.type = 'triangle';
