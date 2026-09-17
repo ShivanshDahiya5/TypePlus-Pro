@@ -117,3 +117,15 @@ export function playKeySound(
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(280 + Math.random() * 50, now);
+    osc.frequency.exponentialRampToValueAtTime(60, now + 0.035);
+
+    gain.gain.setValueAtTime(0.4, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+    osc.connect(gain);
+    gain.connect(masterGain);
+    osc.start(now);
+    osc.stop(now + 0.045);
+  }
+}
