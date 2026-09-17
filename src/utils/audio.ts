@@ -86,3 +86,10 @@ export function playKeySound(
     // Ultra minimal snappy click
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
+    osc.type = 'sine';
+    const freq = isSpace ? 600 : 900 + Math.random() * 100;
+    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.exponentialRampToValueAtTime(100, now + 0.015);
+
+    gain.gain.setValueAtTime(0.4, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.018);
