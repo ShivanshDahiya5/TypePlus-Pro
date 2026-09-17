@@ -129,3 +129,8 @@ export function playKeySound(
     osc.stop(now + 0.045);
   }
 }
+
+export function playCompletionSound(volume: number = 0.5) {
+  if (volume <= 0) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
