@@ -93,3 +93,14 @@ export function playKeySound(
 
     gain.gain.setValueAtTime(0.4, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.018);
+
+    osc.connect(gain);
+    gain.connect(masterGain);
+    osc.start(now);
+    osc.stop(now + 0.02);
+  } else if (type === 'beep') {
+    // Soft tone
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(isSpace ? 440 : 520 + (Math.random() * 80), now);
