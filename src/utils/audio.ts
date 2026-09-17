@@ -147,3 +147,11 @@ export function playCompletionSound(volume: number = 0.5) {
 
     gain.gain.setValueAtTime(volume * 0.25, startT);
     gain.gain.exponentialRampToValueAtTime(0.001, startT + 0.3);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(startT);
+    osc.stop(startT + 0.35);
+  });
+}
