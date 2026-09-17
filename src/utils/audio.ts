@@ -58,3 +58,13 @@ export function playKeySound(
     const baseFreq = isSpace ? 340 : 480 + (Math.random() * 60 - 30);
 
     osc1.type = 'triangle';
+    osc1.frequency.setValueAtTime(baseFreq, now);
+    osc1.frequency.exponentialRampToValueAtTime(baseFreq * 0.5, now + 0.025);
+
+    gain1.gain.setValueAtTime(0.35, now);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+
+    osc1.connect(gain1);
+    gain1.connect(masterGain);
+    osc1.start(now);
+    osc1.stop(now + 0.035);
