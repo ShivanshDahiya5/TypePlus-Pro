@@ -23,3 +23,15 @@ export function playKeySound(
   isSpace: boolean = false
 ) {
   if (type === 'off' || volume <= 0) return;
+
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  const now = ctx.currentTime;
+  const masterGain = ctx.createGain();
+  masterGain.gain.setValueAtTime(volume * 0.4, now);
+  masterGain.connect(ctx.destination);
+
+  if (isError) {
+    // Low pitched error blip
+    const osc = ctx.createOscillator();
