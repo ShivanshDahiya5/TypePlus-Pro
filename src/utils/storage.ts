@@ -17,3 +17,15 @@ const DEFAULT_PREFERENCES: UserPreferences = {
   blindMode: false,
   smoothCaret: true,
 };
+
+const DEFAULT_STATS: OverallStats = {
+  testsCompleted: 0,
+  highestWpm: 0,
+  averageWpm: 0,
+  averageAccuracy: 100,
+  totalTimeTypedSeconds: 0,
+  bestRecords: {},
+};
+
+export function loadPreferences(): UserPreferences {
+  try {
