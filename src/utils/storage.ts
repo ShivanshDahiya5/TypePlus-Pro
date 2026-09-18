@@ -99,3 +99,13 @@ export function saveTestResult(result: TestResult): { updatedHistory: TestResult
     totalTimeTypedSeconds: totalTimeTyped,
     bestRecords: updatedBestRecords,
   };
+
+  try {
+    localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(newHistory));
+    localStorage.setItem(STORAGE_KEYS.STATS, JSON.stringify(updatedStats));
+  } catch {
+    // ignore quota
+  }
+
+  return { updatedHistory: newHistory, isPersonalBest };
+}
