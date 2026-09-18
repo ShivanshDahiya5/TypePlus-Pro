@@ -83,3 +83,19 @@ export function saveTestResult(result: TestResult): { updatedHistory: TestResult
 
   const totalAccSum = newHistory.reduce((acc, r) => acc + r.accuracy, 0);
   const averageAccuracy = Number((totalAccSum / totalCompleted).toFixed(1));
+
+  const totalTimeTyped = currentStats.totalTimeTypedSeconds + (result.durationSeconds || 0);
+
+  const updatedBestRecords = { ...currentStats.bestRecords };
+  if (result.wpm > (updatedBestRecords[modeKey] || 0)) {
+    updatedBestRecords[modeKey] = result.wpm;
+  }
+
+  const updatedStats: OverallStats = {
+    testsCompleted: totalCompleted,
+    highestWpm,
+    averageWpm,
+    averageAccuracy,
+    totalTimeTypedSeconds: totalTimeTyped,
+    bestRecords: updatedBestRecords,
+  };
