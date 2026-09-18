@@ -41,6 +41,7 @@ export function savePreferences(prefs: UserPreferences): void {
   try {
     localStorage.setItem(STORAGE_KEYS.PREFERENCES, JSON.stringify(prefs));
   } catch {
+    // ignore quota errors
   }
 }
 
@@ -108,8 +109,9 @@ export function saveTestResult(result: TestResult): { updatedHistory: TestResult
   }
 
   return { updatedHistory: newHistory, isPersonalBest };
+}
 
-  export function clearAllHistory(): void {
+export function clearAllHistory(): void {
   try {
     localStorage.removeItem(STORAGE_KEYS.HISTORY);
     localStorage.removeItem(STORAGE_KEYS.STATS);
