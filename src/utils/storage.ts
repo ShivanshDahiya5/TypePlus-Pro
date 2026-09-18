@@ -29,3 +29,17 @@ const DEFAULT_STATS: OverallStats = {
 
 export function loadPreferences(): UserPreferences {
   try {
+    const raw = localStorage.getItem(STORAGE_KEYS.PREFERENCES);
+    if (!raw) return DEFAULT_PREFERENCES;
+    return { ...DEFAULT_PREFERENCES, ...JSON.parse(raw) };
+  } catch {
+    return DEFAULT_PREFERENCES;
+  }
+}
+
+export function savePreferences(prefs: UserPreferences): void {
+  try {
+    localStorage.setItem(STORAGE_KEYS.PREFERENCES, JSON.stringify(prefs));
+  } catch {
+  }
+}
