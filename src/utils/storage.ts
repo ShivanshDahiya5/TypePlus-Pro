@@ -54,3 +54,13 @@ export function loadHistory(): TestResult[] {
     return [];
   }
 }
+
+export function loadOverallStats(): OverallStats {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.STATS);
+    if (!raw) return DEFAULT_STATS;
+    return { ...DEFAULT_STATS, ...JSON.parse(raw) };
+  } catch {
+    return DEFAULT_STATS;
+  }
+}
