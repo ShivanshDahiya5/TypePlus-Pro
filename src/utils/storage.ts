@@ -64,3 +64,11 @@ export function loadOverallStats(): OverallStats {
     return DEFAULT_STATS;
   }
 }
+
+export function saveTestResult(result: TestResult): { updatedHistory: TestResult[]; isPersonalBest: boolean } {
+  const history = loadHistory();
+  const currentStats = loadOverallStats();
+
+  const modeKey = result.modeDescription;
+  const previousBestForMode = currentStats.bestRecords[modeKey] || 0;
+  const isPersonalBest = result.wpm > previousBestForMode && result.accuracy >= 90;
