@@ -43,3 +43,14 @@ export function savePreferences(prefs: UserPreferences): void {
   } catch {
   }
 }
+
+export function loadHistory(): TestResult[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.HISTORY);
+    if (!raw) return [];
+    const list = JSON.parse(raw);
+    return Array.isArray(list) ? list.slice(0, 100) : [];
+  } catch {
+    return [];
+  }
+}
