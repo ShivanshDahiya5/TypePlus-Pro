@@ -108,4 +108,12 @@ export function saveTestResult(result: TestResult): { updatedHistory: TestResult
   }
 
   return { updatedHistory: newHistory, isPersonalBest };
+
+  export function clearAllHistory(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEYS.HISTORY);
+    localStorage.removeItem(STORAGE_KEYS.STATS);
+  } catch {
+    // ignore
+  }
 }
