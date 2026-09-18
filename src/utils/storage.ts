@@ -72,3 +72,14 @@ export function saveTestResult(result: TestResult): { updatedHistory: TestResult
   const modeKey = result.modeDescription;
   const previousBestForMode = currentStats.bestRecords[modeKey] || 0;
   const isPersonalBest = result.wpm > previousBestForMode && result.accuracy >= 90;
+
+  const newHistory = [result, ...history].slice(0, 100);
+
+  // Recalculate lifetime stats
+  const totalCompleted = newHistory.length;
+  const highestWpm = Math.max(currentStats.highestWpm, result.wpm);
+  const totalWpmSum = newHistory.reduce((acc, r) => acc + r.wpm, 0);
+  const averageWpm = Math.round(totalWpmSum / totalCompleted);
+
+  const totalAccSum = newHistory.reduce((acc, r) => acc + r.accuracy, 0);
+  const averageAccuracy = Number((totalAccSum / totalCompleted).toFixed(1));
