@@ -131,3 +131,11 @@ export function generateTestText(settings: TestSettings): { words: string[]; quo
 
   const generatedWords: string[] = [];
   const punctuationMarks = ['.', ',', '!', '?', ';', ':', '-', '...', '"'];
+
+  for (let i = 0; i < count; i++) {
+    let word = COMMON_WORDS_200[Math.floor(Math.random() * COMMON_WORDS_200.length)];
+
+    // Inject numbers occasionally if numbers toggle is active
+    if (settings.numbers && Math.random() < 0.16) {
+      word = String(Math.floor(Math.random() * 999) + 1);
+    }
