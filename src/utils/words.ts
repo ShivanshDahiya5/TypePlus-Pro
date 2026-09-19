@@ -30,3 +30,18 @@ export const FAMOUS_QUOTES: { length: QuoteLength; text: string; author: string 
     text: 'Talk is cheap. Show me the code.',
     author: 'Linus Torvalds',
   },
+  {
+    length: 'short',
+    text: 'Premature optimization is the root of all evil.',
+    author: 'Donald Knuth',
+  },
+  {
+    length: 'short',
+    text: 'Stay hungry, stay foolish.',
+    author: 'Steve Jobs',
+  },
+  {
+    length: 'medium',
+    text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+    author: 'Martin Fowler',
+  },
