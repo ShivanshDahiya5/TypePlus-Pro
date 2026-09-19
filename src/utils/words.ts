@@ -139,3 +139,10 @@ export function generateTestText(settings: TestSettings): { words: string[]; quo
     if (settings.numbers && Math.random() < 0.16) {
       word = String(Math.floor(Math.random() * 999) + 1);
     }
+
+    // Capitalize & add punctuation if punctuation toggle is active
+    if (settings.punctuation && !settings.numbers) {
+      if (i === 0 || Math.random() < 0.2) {
+        word = word.charAt(0).toUpperCase() + word.slice(1);
+      }
+      if (Math.random() < 0.22) {
