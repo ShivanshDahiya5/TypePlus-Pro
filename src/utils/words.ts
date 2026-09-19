@@ -104,3 +104,18 @@ export const PRESET_CUSTOM_TEXTS = [
     text: 'In my younger and more vulnerable years my father gave me some advice that I have been turning over in my mind ever since. Whenever you feel like criticizing anyone, just remember that all the people in this world have not had the advantages that you have had.',
   },
 ];
+
+export function generateTestText(settings: TestSettings): { words: string[]; quoteAuthor?: string } {
+  if (settings.mode === 'custom' && settings.customText.trim()) {
+    const raw = settings.customText.trim().replace(/\r\n/g, '\n').replace(/\t/g, '  ');
+    const words = raw.split(/\s+/).filter(Boolean);
+    return { words };
+  }
+
+  if (settings.mode === 'quote') {
+    const matchingQuotes = FAMOUS_QUOTES.filter((q) => q.length === settings.quoteLength);
+    const pool = matchingQuotes.length > 0 ? matchingQuotes : FAMOUS_QUOTES;
+    const selected = pool[Math.floor(Math.random() * pool.length)];
+    const words = selected.text.trim().split(/\s+/).filter(Boolean);
+    return { words, quoteAuthor: selected.author };
+  }
