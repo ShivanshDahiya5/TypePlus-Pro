@@ -45,3 +45,23 @@ export const FAMOUS_QUOTES: { length: QuoteLength; text: string; author: string 
     text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
     author: 'Martin Fowler',
   },
+  {
+    length: 'medium',
+    text: 'The best error message is the one that never shows up because the mistake was impossible to make.',
+    author: 'Thomas Fuchs',
+  },
+  {
+    length: 'medium',
+    text: 'Continuous effort, not strength or intelligence, is the key to unlocking our potential.',
+    author: 'Winston Churchill',
+  },
+  {
+    length: 'medium',
+    text: 'It is not that I am so smart, it is just that I stay with problems longer.',
+    author: 'Albert Einstein',
+  },
+  {
+    length: 'medium',
+    text: 'Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.',
+    author: 'Antoine de Saint-Exupéry',
+  },
