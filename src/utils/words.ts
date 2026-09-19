@@ -65,3 +65,19 @@ export const FAMOUS_QUOTES: { length: QuoteLength; text: string; author: string 
     text: 'Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.',
     author: 'Antoine de Saint-Exupéry',
   },
+  {
+    length: 'long',
+    text: 'The function of good software is to make the complex appear to be simple. We should cultivate a habit of clarity, writing functions that do one thing cleanly and concisely.',
+    author: 'Grady Booch',
+  },
+  {
+    length: 'long',
+    text: 'The impediment to action advances action. What stands in the way becomes the way. Master your thoughts, focus on the immediate task, and turn obstacles into opportunities.',
+    author: 'Marcus Aurelius',
+  },
+  {
+    length: 'long',
+    text: 'Most good programmers do programming not because they expect to get paid or get the adulation by the public, but because it is fun to program and create something remarkable out of nothing.',
+    author: 'Linus Torvalds',
+  },
+];
