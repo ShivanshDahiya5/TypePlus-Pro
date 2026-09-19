@@ -119,3 +119,15 @@ export function generateTestText(settings: TestSettings): { words: string[]; quo
     const words = selected.text.trim().split(/\s+/).filter(Boolean);
     return { words, quoteAuthor: selected.author };
   }
+
+  // Count to generate
+  let count = 50;
+  if (settings.mode === 'words') {
+    count = settings.wordOption;
+  } else if (settings.mode === 'time') {
+    // Generate enough words so fast typists (up to 200+ WPM) don't run out
+    count = Math.max(80, Math.round((settings.timeOption / 60) * 180));
+  }
+
+  const generatedWords: string[] = [];
+  const punctuationMarks = ['.', ',', '!', '?', ';', ':', '-', '...', '"'];
