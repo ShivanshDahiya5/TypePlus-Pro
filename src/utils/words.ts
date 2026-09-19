@@ -93,3 +93,14 @@ export const PRESET_CUSTOM_TEXTS = [
     category: 'Code',
     text: 'def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1',
   },
+  {
+    title: 'Clean Architecture Principles',
+    category: 'Engineering',
+    text: 'Software architecture is the art of drawing lines that divide software into elements that can be developed, tested, deployed, and maintained independently of each other.',
+  },
+  {
+    title: 'The Great Gatsby Opening',
+    category: 'Literature',
+    text: 'In my younger and more vulnerable years my father gave me some advice that I have been turning over in my mind ever since. Whenever you feel like criticizing anyone, just remember that all the people in this world have not had the advantages that you have had.',
+  },
+];
