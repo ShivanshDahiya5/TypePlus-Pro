@@ -18,7 +18,7 @@ export const THEMES: Record<ThemeId, ThemeConfig> = {
     charExtra: '#be123c',
     caret: '#6366f1',
   },
-cyberpunk: {
+  cyberpunk: {
     id: 'cyberpunk',
     name: 'Cyberpunk Neon',
     bg: '#0a0a14',
@@ -85,7 +85,7 @@ cyberpunk: {
     charIncorrect: '#f43f5e',
     charExtra: '#fda4af',
     caret: '#10b981',
-      },
+  },
   coffee: {
     id: 'coffee',
     name: 'Espresso Warm',
@@ -103,7 +103,7 @@ cyberpunk: {
     charExtra: '#991b1b',
     caret: '#d97706',
   },
-sakura: {
+  sakura: {
     id: 'sakura',
     name: 'Sakura Blossom',
     bg: '#130c14',
