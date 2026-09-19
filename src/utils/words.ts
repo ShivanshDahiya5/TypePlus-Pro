@@ -14,3 +14,19 @@ export const COMMON_WORDS_200 = [
   'brain', 'mind', 'type', 'rapid', 'quick', 'sharp', 'drive', 'flow', 'sense', 'skill', 'pixel', 'shift', 'reach', 'smart'
 ];
 
+export const FAMOUS_QUOTES: { length: QuoteLength; text: string; author: string }[] = [
+  {
+    length: 'short',
+    text: 'Simplicity is the soul of efficiency.',
+    author: 'Austin Freeman',
+  },
+  {
+    length: 'short',
+    text: 'First, solve the problem. Then, write the code.',
+    author: 'John Johnson',
+  },
+  {
+    length: 'short',
+    text: 'Talk is cheap. Show me the code.',
+    author: 'Linus Torvalds',
+  },
