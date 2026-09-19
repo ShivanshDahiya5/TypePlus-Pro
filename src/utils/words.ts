@@ -81,3 +81,15 @@ export const FAMOUS_QUOTES: { length: QuoteLength; text: string; author: string 
     author: 'Linus Torvalds',
   },
 ];
+
+export const PRESET_CUSTOM_TEXTS = [
+  {
+    title: 'JavaScript Async/Await Pattern',
+    category: 'Code',
+    text: 'async function fetchTelemetry(url) {\n  try {\n    const response = await fetch(url);\n    if (!response.ok) throw new Error("Network error");\n    const data = await response.json();\n    return data;\n  } catch (err) {\n    console.error("Telemetry failed:", err);\n  }\n}',
+  },
+  {
+    title: 'Python Binary Search Algorithm',
+    category: 'Code',
+    text: 'def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1',
+  },
