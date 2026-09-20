@@ -166,3 +166,13 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
                 onClick={() => onUpdateSettings({ quoteLength: len })}
                 className="px-2.5 py-1 rounded-lg capitalize transition-all cursor-pointer"
                 style={{
+                    color: settings.quoteLength === len ? theme.primary : theme.textMuted,
+                  fontWeight: settings.quoteLength === len ? 700 : 400,
+                  backgroundColor: settings.quoteLength === len ? theme.primaryLight : 'transparent',
+                }}
+              >
+                {len}
+              </button>
+            ))}
+          </div>
+        )}
