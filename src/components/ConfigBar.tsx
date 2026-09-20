@@ -221,3 +221,23 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             </button>
           </div>
         )}
+
+        {/* Quick Restart Button */}
+        <button
+          id="btn-quick-restart"
+          onClick={onResetTest}
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all hover:opacity-100 opacity-80 cursor-pointer"
+          style={{
+            backgroundColor: theme.bg,
+            border: `1px solid ${theme.border}`,
+            color: theme.text,
+          }}
+          title="Restart Test (or press Tab / Esc)"
+        >
+          <RotateCcw className="w-3 h-3" />
+          <span className="hidden sm:inline">restart</span>
+        </button>
+      </div>
+    </div>
+  );
+};
