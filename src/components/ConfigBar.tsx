@@ -176,3 +176,14 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             ))}
           </div>
         )}
+
+        {settings.mode === 'custom' && (
+          <button
+            onClick={onOpenCustomText}
+            className="px-2.5 py-1 rounded-lg underline transition-all cursor-pointer hover:opacity-100"
+            style={{ color: theme.primary }}
+          >
+            {settings.customTitle || 'Edit Custom Text...'}
+          </button>
+        )}
+      </div>
