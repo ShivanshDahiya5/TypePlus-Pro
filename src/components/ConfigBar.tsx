@@ -127,3 +127,14 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
                 key={time}
                 onClick={() => onUpdateSettings({ timeOption: time })}
                 className="px-2.5 py-1 rounded-lg transition-all cursor-pointer"
+                style={{
+                  color: settings.timeOption === time ? theme.primary : theme.textMuted,
+                  fontWeight: settings.timeOption === time ? 700 : 400,
+                  backgroundColor: settings.timeOption === time ? theme.primaryLight : 'transparent',
+                }}
+              >
+                {time}s
+              </button>
+            ))}
+          </div>
+        )}
