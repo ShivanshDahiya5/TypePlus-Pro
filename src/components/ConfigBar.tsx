@@ -146,3 +146,14 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
                 key={wCount}
                 onClick={() => onUpdateSettings({ wordOption: wCount })}
                 className="px-2.5 py-1 rounded-lg transition-all cursor-pointer"
+                style={{
+                  color: settings.wordOption === wCount ? theme.primary : theme.textMuted,
+                  fontWeight: settings.wordOption === wCount ? 700 : 400,
+                  backgroundColor: settings.wordOption === wCount ? theme.primaryLight : 'transparent',
+                }}
+              >
+                {wCount}
+              </button>
+            ))}
+          </div>
+        )}
