@@ -187,3 +187,21 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
           </button>
         )}
       </div>
+
+      {/* Right group: Punctuation, Numbers, Reset */}
+      <div className="flex items-center gap-2 flex-wrap">
+        {settings.mode !== 'quote' && settings.mode !== 'custom' && (
+          <div className="flex items-center gap-1 border-r pr-2" style={{ borderColor: theme.border }}>
+            <button
+              onClick={() => onUpdateSettings({ punctuation: !settings.punctuation })}
+              className="flex items-center gap-1 px-2 py-1 rounded-md transition-all cursor-pointer"
+              style={{
+                color: settings.punctuation ? theme.primary : theme.textMuted,
+                backgroundColor: settings.punctuation ? theme.primaryLight : 'transparent',
+                fontWeight: settings.punctuation ? 600 : 400,
+              }}
+              title="Toggle Punctuation"
+            >
+              <AtSign className="w-3 h-3" />
+              <span>punctuation</span>
+            </button>
