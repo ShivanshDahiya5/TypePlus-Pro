@@ -115,3 +115,15 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             <span>Custom</span>
           </button>
         </div>
+
+        {/* Vertical divider */}
+        <div className="h-5 w-[1px] mx-1 opacity-50" style={{ backgroundColor: theme.border }} />
+
+        {/* Sub options per mode */}
+        {settings.mode === 'time' && (
+          <div className="flex items-center gap-1">
+            {([15, 30, 60, 120] as TimeOption[]).map((time) => (
+              <button
+                key={time}
+                onClick={() => onUpdateSettings({ timeOption: time })}
+                className="px-2.5 py-1 rounded-lg transition-all cursor-pointer"
