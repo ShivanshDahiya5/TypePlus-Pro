@@ -62,3 +62,18 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             <Clock className="w-3.5 h-3.5" />
             <span>Time</span>
           </button>
+
+          <button
+            id="mode-words"
+            onClick={() => onUpdateSettings({ mode: 'words' })}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
+            style={{
+              backgroundColor: settings.mode === 'words' ? theme.primary : 'transparent',
+              color: settings.mode === 'words' ? '#ffffff' : theme.textMuted,
+              fontWeight: settings.mode === 'words' ? 600 : 400,
+              boxShadow: settings.mode === 'words' ? `0 2px 8px ${theme.primary}40` : 'none',
+            }}
+          >
+            <Type className="w-3.5 h-3.5" />
+            <span>Words</span>
+          </button>
