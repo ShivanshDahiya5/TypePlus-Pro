@@ -157,3 +157,12 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             ))}
           </div>
         )}
+
+        {settings.mode === 'quote' && (
+          <div className="flex items-center gap-1">
+            {(['short', 'medium', 'long'] as QuoteLength[]).map((len) => (
+              <button
+                key={len}
+                onClick={() => onUpdateSettings({ quoteLength: len })}
+                className="px-2.5 py-1 rounded-lg capitalize transition-all cursor-pointer"
+                style={{
