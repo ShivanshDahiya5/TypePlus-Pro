@@ -92,3 +92,14 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             <QuoteIcon className="w-3.5 h-3.5" />
             <span>Quote</span>
           </button>
+
+          <button
+            id="mode-custom"
+            onClick={() => {
+              if (settings.mode !== 'custom') {
+                onUpdateSettings({ mode: 'custom' });
+              }
+              if (!settings.customText) {
+                onOpenCustomText();
+              }
+            }}
