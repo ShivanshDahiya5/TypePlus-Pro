@@ -77,3 +77,18 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             <Type className="w-3.5 h-3.5" />
             <span>Words</span>
           </button>
+
+          <button
+            id="mode-quote"
+            onClick={() => onUpdateSettings({ mode: 'quote' })}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
+            style={{
+              backgroundColor: settings.mode === 'quote' ? theme.primary : 'transparent',
+              color: settings.mode === 'quote' ? '#ffffff' : theme.textMuted,
+              fontWeight: settings.mode === 'quote' ? 600 : 400,
+              boxShadow: settings.mode === 'quote' ? `0 2px 8px ${theme.primary}40` : 'none',
+            }}
+          >
+            <QuoteIcon className="w-3.5 h-3.5" />
+            <span>Quote</span>
+          </button>
