@@ -44,3 +44,21 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
         color: theme.textMuted,
       }}
     >
+        {/* Left group: Modes */}
+      <div className="flex items-center gap-2 flex-wrap">
+        {/* Mode items */}
+        <div className="flex items-center bg-black/20 p-1 rounded-xl gap-1 border" style={{ borderColor: theme.border }}>
+          <button
+            id="mode-time"
+            onClick={() => onUpdateSettings({ mode: 'time' })}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
+            style={{
+              backgroundColor: settings.mode === 'time' ? theme.primary : 'transparent',
+              color: settings.mode === 'time' ? '#ffffff' : theme.textMuted,
+              fontWeight: settings.mode === 'time' ? 600 : 400,
+              boxShadow: settings.mode === 'time' ? `0 2px 8px ${theme.primary}40` : 'none',
+            }}
+          >
+            <Clock className="w-3.5 h-3.5" />
+            <span>Time</span>
+          </button>
