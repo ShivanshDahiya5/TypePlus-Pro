@@ -205,3 +205,19 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
               <AtSign className="w-3 h-3" />
               <span>punctuation</span>
             </button>
+
+            <button
+              onClick={() => onUpdateSettings({ numbers: !settings.numbers })}
+              className="flex items-center gap-1 px-2 py-1 rounded-md transition-all cursor-pointer"
+              style={{
+                color: settings.numbers ? theme.primary : theme.textMuted,
+                backgroundColor: settings.numbers ? theme.primaryLight : 'transparent',
+                fontWeight: settings.numbers ? 600 : 400,
+              }}
+              title="Toggle Numbers"
+            >
+              <Hash className="w-3 h-3" />
+              <span>numbers</span>
+            </button>
+          </div>
+        )}
