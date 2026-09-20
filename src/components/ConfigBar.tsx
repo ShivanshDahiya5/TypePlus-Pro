@@ -138,3 +138,11 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
             ))}
           </div>
         )}
+
+        {settings.mode === 'words' && (
+          <div className="flex items-center gap-1">
+            {([10, 25, 50, 100] as WordOption[]).map((wCount) => (
+              <button
+                key={wCount}
+                onClick={() => onUpdateSettings({ wordOption: wCount })}
+                className="px-2.5 py-1 rounded-lg transition-all cursor-pointer"
