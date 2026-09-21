@@ -10,3 +10,15 @@ interface CustomTextModalProps {
   onClose: () => void;
   onApplyCustomText: (text: string, title?: string) => void;
 }
+
+export const CustomTextModal: React.FC<CustomTextModalProps> = ({
+  theme,
+  isOpen,
+  currentCustomText,
+  onClose,
+  onApplyCustomText,
+}) => {
+  const [textInput, setTextInput] = useState(currentCustomText || '');
+  const [titleInput, setTitleInput] = useState('');
+
+  if (!isOpen) return null;
