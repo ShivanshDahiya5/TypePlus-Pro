@@ -126,3 +126,17 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
                 {wordCount} words / {charCount} characters
               </span>
             </div>
+            <textarea
+              rows={5}
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              placeholder="Paste custom text, code snippets, or quotes here..."
+              className="w-full p-3.5 rounded-2xl border text-xs font-mono outline-none resize-none transition-colors shadow-inner"
+              style={{
+                backgroundColor: theme.bg,
+                borderColor: theme.border,
+                color: theme.text,
+              }}
+            />
+          </div>
+        </div>
