@@ -87,3 +87,15 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
               <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
               <span>Curated Presets</span>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {PRESET_CUSTOM_TEXTS.map((preset, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSelectPreset(preset)}
+                  className="p-3 rounded-2xl border text-left transition-all hover:scale-[1.01] hover:border-indigo-500/50 cursor-pointer group shadow-sm"
+                  style={{
+                    backgroundColor: theme.bg,
+                    borderColor: theme.border,
+                  }}
+                >
