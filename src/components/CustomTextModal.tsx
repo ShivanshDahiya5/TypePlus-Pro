@@ -152,3 +152,9 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
           >
             Cancel
           </button>
+
+          <button
+            onClick={handleApply}
+            disabled={!textInput.trim()}
+            className="px-6 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all hover:scale-105 shadow-md shadow-indigo-600/20 disabled:opacity-40 disabled:hover:scale-100 cursor-pointer"
+            style={{
