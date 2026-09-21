@@ -35,16 +35,15 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
 }) => {
   return (
     <div
-      className={`w-full max-w-4xl mx-auto mb-6 px-4 py-2.5 rounded-2xl backdrop-blur-sm transition-all duration-200 flex flex-wrap items-center justify-between gap-3 text-xs font-mono select-none shadow-sm ${
-        isTestActive ? 'opacity-30 hover:opacity-100 pointer-events-auto' : 'opacity-100'
-      }`}
+      className={`w-full max-w-4xl mx-auto mb-6 px-4 py-2.5 rounded-2xl backdrop-blur-sm transition-all duration-200 flex flex-wrap items-center justify-between gap-3 text-xs font-mono select-none shadow-sm ${isTestActive ? 'opacity-30 hover:opacity-100 pointer-events-auto' : 'opacity-100'
+        }`}
       style={{
         backgroundColor: theme.cardBg,
         border: `1px solid ${theme.border}`,
         color: theme.textMuted,
       }}
     >
-        {/* Left group: Modes */}
+      {/* Left group: Modes */}
       <div className="flex items-center gap-2 flex-wrap">
         {/* Mode items */}
         <div className="flex items-center bg-black/20 p-1 rounded-xl gap-1 border" style={{ borderColor: theme.border }}>
@@ -103,7 +102,7 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
                 onOpenCustomText();
               }
             }}
-             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
             style={{
               backgroundColor: settings.mode === 'custom' ? theme.primary : 'transparent',
               color: settings.mode === 'custom' ? '#ffffff' : theme.textMuted,
@@ -166,7 +165,7 @@ export const ConfigBar: React.FC<ConfigBarProps> = ({
                 onClick={() => onUpdateSettings({ quoteLength: len })}
                 className="px-2.5 py-1 rounded-lg capitalize transition-all cursor-pointer"
                 style={{
-                    color: settings.quoteLength === len ? theme.primary : theme.textMuted,
+                  color: settings.quoteLength === len ? theme.primary : theme.textMuted,
                   fontWeight: settings.quoteLength === len ? 700 : 400,
                   backgroundColor: settings.quoteLength === len ? theme.primaryLight : 'transparent',
                 }}
