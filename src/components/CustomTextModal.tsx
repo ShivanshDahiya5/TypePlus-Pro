@@ -36,3 +36,14 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
     setTextInput(preset.text);
     setTitleInput(preset.title);
   };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-md bg-black/70 font-mono">
+      <div
+        className="relative w-full max-w-2xl max-h-[90vh] rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col overflow-hidden border backdrop-blur-xl"
+        style={{
+          backgroundColor: theme.cardBg,
+          borderColor: theme.border,
+          color: theme.text,
+        }}
+      >
