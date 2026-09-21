@@ -75,3 +75,15 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
+
+        {/* Modal Body */}
+        <div className="flex-1 overflow-y-auto py-4 space-y-4 pr-1">
+          {/* Presets List */}
+          <div>
+            <div
+              className="text-xs font-semibold uppercase tracking-wider mb-2 flex items-center gap-1.5 opacity-80"
+              style={{ color: theme.textMuted }}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
+              <span>Curated Presets</span>
+            </div>
