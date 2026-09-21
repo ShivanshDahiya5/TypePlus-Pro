@@ -147,3 +147,8 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
           style={{ borderColor: theme.border }}
         >
           <button
+           onClick={onClose}
+            className="px-4 py-2 rounded-xl text-xs opacity-70 hover:opacity-100 cursor-pointer"
+          >
+            Cancel
+          </button>
