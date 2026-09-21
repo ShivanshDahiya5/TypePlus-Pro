@@ -158,3 +158,15 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
             disabled={!textInput.trim()}
             className="px-6 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all hover:scale-105 shadow-md shadow-indigo-600/20 disabled:opacity-40 disabled:hover:scale-100 cursor-pointer"
             style={{
+                    backgroundColor: theme.primary,
+              color: '#ffffff',
+            }}
+          >
+            <Check className="w-4 h-4" />
+            <span>Apply & Start Test</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
