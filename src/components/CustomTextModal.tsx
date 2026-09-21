@@ -140,3 +140,10 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
             />
           </div>
         </div>
+
+        {/* Modal Footer */}
+        <div
+          className="pt-4 border-t flex items-center justify-between"
+          style={{ borderColor: theme.border }}
+        >
+          <button
