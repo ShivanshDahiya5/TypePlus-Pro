@@ -99,3 +99,18 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
                     borderColor: theme.border,
                   }}
                 >
+                    <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="group-hover:text-indigo-400 transition-colors">
+                      {preset.title}
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-black/30 border border-slate-800 text-slate-400">
+                      {preset.category}
+                    </span>
+                  </div>
+                  <p className="text-[11px] opacity-60 mt-1 line-clamp-2 leading-tight">
+                    {preset.text}
+                  </p>
+                </button>
+              ))}
+            </div>
+          </div>
