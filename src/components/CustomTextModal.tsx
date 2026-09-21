@@ -114,3 +114,15 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
               ))}
             </div>
           </div>
+
+          {/* Custom Text Area */}
+          <div>
+            <div
+              className="flex items-center justify-between text-xs mb-2 font-semibold"
+              style={{ color: theme.textMuted }}
+            >
+              <span>PASTE OR WRITE TEXT</span>
+              <span className="text-[11px] opacity-70">
+                {wordCount} words / {charCount} characters
+              </span>
+            </div>
