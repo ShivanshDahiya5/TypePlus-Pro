@@ -59,3 +59,19 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
             >
               <FileText className="w-5 h-5" />
             </div>
+            <div>
+              <h2 className="text-lg font-bold">Custom Practice Text</h2>
+              <p className="text-xs opacity-70" style={{ color: theme.textMuted }}>
+                Paste your own code, essays, or select curated presets
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="p-2 rounded-xl transition-all hover:opacity-100 opacity-70 cursor-pointer"
+            style={{ backgroundColor: theme.bg, color: theme.text }}
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
