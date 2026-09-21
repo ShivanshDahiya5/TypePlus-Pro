@@ -47,3 +47,15 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
           color: theme.text,
         }}
       >
+        {/* Modal Header */}
+        <div
+          className="flex items-center justify-between pb-4 border-b"
+          style={{ borderColor: theme.border }}
+        >
+          <div className="flex items-center gap-3">
+            <div
+              className="p-2.5 rounded-xl shadow-md"
+              style={{ backgroundColor: theme.primaryLight, color: theme.primary }}
+            >
+              <FileText className="w-5 h-5" />
+            </div>
