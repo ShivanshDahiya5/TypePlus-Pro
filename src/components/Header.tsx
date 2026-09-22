@@ -212,3 +212,32 @@ export const Header: React.FC<HeaderProps> = ({
               setIsSettingsOpen(!isSettingsOpen);
               setIsThemeOpen(false);
             }}
+            className="p-2 rounded-lg text-xs font-mono transition-all hover:opacity-100 opacity-80 cursor-pointer"
+            style={{
+              backgroundColor: theme.cardBg,
+              color: theme.text,
+              border: `1px solid ${theme.border}`,
+            }}
+            title="Typing Preferences & Settings"
+          >
+            <Settings className="w-4 h-4" />
+          </button>
+
+          {isSettingsOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsSettingsOpen(false)}
+              />
+              <div
+                className="absolute right-0 mt-2 w-72 p-4 rounded-xl shadow-2xl z-50 border backdrop-blur-md text-xs font-mono"
+                style={{
+                  backgroundColor: theme.cardBg,
+                  borderColor: theme.border,
+                  color: theme.text,
+                }}
+              >
+                <div className="font-semibold text-sm mb-3 flex items-center justify-between border-b pb-2" style={{ borderColor: theme.border }}>
+                  <span>Typing Preferences</span>
+                  <Zap className="w-3.5 h-3.5" style={{ color: theme.primary }} />
+                </div>
