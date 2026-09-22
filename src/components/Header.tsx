@@ -265,3 +265,27 @@ export const Header: React.FC<HeaderProps> = ({
                     ))}
                   </div>
                 </div>
+
+                {/* Caret Style */}
+                <div className="space-y-1.5 mb-3.5">
+                  <div className="flex justify-between items-center text-[11px] opacity-80">
+                    <span>Caret Style</span>
+                    <span className="capitalize">{preferences.caretStyle}</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-1">
+                    {(['line', 'block', 'underline', 'off'] as const).map((style) => (
+                      <button
+                        key={style}
+                        onClick={() => onUpdatePreferences({ caretStyle: style })}
+                        className="py-1 px-1.5 rounded text-[11px] font-mono capitalize transition-colors text-center cursor-pointer"
+                        style={{
+                          backgroundColor: preferences.caretStyle === style ? theme.primaryLight : 'transparent',
+                          color: preferences.caretStyle === style ? theme.primary : theme.textMuted,
+                          border: `1px solid ${preferences.caretStyle === style ? theme.primary : theme.border}`,
+                        }}
+                      >
+                        {style}
+                      </button>
+                    ))}
+                  </div>
+                </div>
