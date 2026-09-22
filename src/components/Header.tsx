@@ -102,3 +102,33 @@ export const Header: React.FC<HeaderProps> = ({
           id="btn-history-stats"
           onClick={onOpenHistory}
           className="px-2.5 py-1.5 rounded-lg text-xs font-mono font-medium flex items-center gap-1.5 transition-all hover:opacity-100 opacity-80 
+          cursor-pointer"
+          style={{
+            backgroundColor: theme.cardBg,
+            color: theme.text,
+            border: `1px solid ${theme.border}`,
+          }}
+          title="View Performance History & Charts"
+        >
+          <BarChart3 className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Stats</span>
+        </button>
+
+        {/* Quick Sound Toggle */}
+        <button
+          id="btn-sound-toggle"
+          onClick={toggleSound}
+          className="p-2 rounded-lg text-xs font-mono transition-all hover:opacity-100 opacity-80 cursor-pointer"
+          style={{
+            backgroundColor: theme.cardBg,
+            color: preferences.sound !== 'off' ? theme.primary : theme.textMuted,
+            border: `1px solid ${theme.border}`,
+          }}
+          title={preferences.sound !== 'off' ? `Sound: ${preferences.sound}` : 'Sound Muted'}
+        >
+          {preferences.sound !== 'off' ? (
+            <Volume2 className="w-4 h-4" />
+          ) : (
+            <VolumeX className="w-4 h-4" />
+          )}
+        </button>
