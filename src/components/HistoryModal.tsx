@@ -102,3 +102,54 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
               <div className="text-2xl font-bold">{overallStats.testsCompleted}</div>
               <div className="text-[11px] opacity-60 mt-0.5">sessions</div>
             </div>
+
+            <div
+              className="p-4 rounded-2xl border shadow-sm"
+              style={{ backgroundColor: theme.bg, borderColor: theme.border }}
+            >
+              <div
+                className="text-[11px] uppercase tracking-widest font-bold opacity-70 mb-1"
+                style={{ color: theme.textMuted }}
+              >
+                Highest Speed
+              </div>
+              <div className="text-2xl font-bold" style={{ color: theme.primary }}>
+                {overallStats.highestWpm} <span className="text-xs">WPM</span>
+              </div>
+              <div className="text-[11px] opacity-60 mt-0.5">personal record</div>
+            </div>
+
+            <div
+              className="p-4 rounded-2xl border shadow-sm"
+              style={{ backgroundColor: theme.bg, borderColor: theme.border }}
+            >
+              <div
+                className="text-[11px] uppercase tracking-widest font-bold opacity-70 mb-1"
+                style={{ color: theme.textMuted }}
+              >
+                Average Speed
+              </div>
+              <div className="text-2xl font-bold">
+                {overallStats.averageWpm} <span className="text-xs">WPM</span>
+              </div>
+              <div className="text-[11px] opacity-60 mt-0.5">overall average</div>
+            </div>
+
+            <div
+              className="p-4 rounded-2xl border shadow-sm"
+              style={{ backgroundColor: theme.bg, borderColor: theme.border }}
+            >
+              <div
+                className="text-[11px] uppercase tracking-widest font-bold opacity-70 mb-1"
+                style={{ color: theme.textMuted }}
+              >
+                Avg Accuracy
+              </div>
+              <div className="text-2xl font-bold" style={{ color: '#10b981' }}>
+                {overallStats.averageAccuracy}%
+              </div>
+              <div className="text-[11px] opacity-60 mt-0.5">
+                {formatTimeTyped(overallStats.totalTimeTypedSeconds)} total
+              </div>
+            </div>
+          </div>
