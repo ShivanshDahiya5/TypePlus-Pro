@@ -289,3 +289,27 @@ export const Header: React.FC<HeaderProps> = ({
                     ))}
                   </div>
                 </div>
+
+                {/* Font Size */}
+                <div className="space-y-1.5 mb-3.5">
+                  <div className="flex justify-between items-center text-[11px] opacity-80">
+                    <span>Font Size</span>
+                    <span className="capitalize">{preferences.fontSize}</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1">
+                    {(['small', 'medium', 'large'] as const).map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => onUpdatePreferences({ fontSize: size })}
+                        className="py-1 px-1.5 rounded text-[11px] font-mono capitalize transition-colors text-center cursor-pointer"
+                        style={{
+                          backgroundColor: preferences.fontSize === size ? theme.primaryLight : 'transparent',
+                          color: preferences.fontSize === size ? theme.primary : theme.textMuted,
+                          border: `1px solid ${preferences.fontSize === size ? theme.primary : theme.border}`,
+                        }}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
