@@ -78,3 +78,27 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </button>
       </div>
+
+      {/* Action controls */}
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        {/* Custom Text Button */}
+        <button
+          id="btn-custom-text"
+          onClick={onOpenCustomText}
+          className="px-2.5 py-1.5 rounded-lg text-xs font-mono font-medium flex items-center gap-1.5 transition-all hover:opacity-100 opacity-80 cursor-pointer"
+          style={{
+            backgroundColor: theme.cardBg,
+            color: theme.text,
+            border: `1px solid ${theme.border}`,
+          }}
+          title="Custom Text & Quotes"
+        >
+          <FileText className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Custom</span>
+        </button>
+
+        {/* History / Stats Button */}
+        <button
+          id="btn-history-stats"
+          onClick={onOpenHistory}
+          className="px-2.5 py-1.5 rounded-lg text-xs font-mono font-medium flex items-center gap-1.5 transition-all hover:opacity-100 opacity-80 
