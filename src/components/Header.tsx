@@ -241,3 +241,27 @@ export const Header: React.FC<HeaderProps> = ({
                   <span>Typing Preferences</span>
                   <Zap className="w-3.5 h-3.5" style={{ color: theme.primary }} />
                 </div>
+
+                {/* Sound effect selector */}
+                <div className="space-y-1.5 mb-3.5">
+                  <div className="flex justify-between items-center text-[11px] opacity-80">
+                    <span>Keypress Audio</span>
+                    <span className="capitalize">{preferences.sound}</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1">
+                    {(['off', 'mechanical', 'click', 'beep', 'typewriter'] as const).map((snd) => (
+                      <button
+                        key={snd}
+                        onClick={() => onUpdatePreferences({ sound: snd })}
+                        className="py-1 px-1.5 rounded text-[11px] font-mono capitalize transition-colors text-center cursor-pointer truncate"
+                        style={{
+                          backgroundColor: preferences.sound === snd ? theme.primaryLight : 'transparent',
+                          color: preferences.sound === snd ? theme.primary : theme.textMuted,
+                          border: `1px solid ${preferences.sound === snd ? theme.primary : theme.border}`,
+                        }}
+                      >
+                        {snd}
+                      </button>
+                    ))}
+                  </div>
+                </div>
