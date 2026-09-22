@@ -132,3 +132,29 @@ export const Header: React.FC<HeaderProps> = ({
             <VolumeX className="w-4 h-4" />
           )}
         </button>
+
+        {/* Theme Picker Dropdown */}
+        <div className="relative">
+          <button
+            id="btn-theme-picker"
+            onClick={() => {
+              setIsThemeOpen(!isThemeOpen);
+              setIsSettingsOpen(false);
+            }}
+            className="p-2 rounded-lg text-xs font-mono transition-all hover:opacity-100 opacity-80 cursor-pointer"
+            style={{
+              backgroundColor: theme.cardBg,
+              color: theme.text,
+              border: `1px solid ${theme.border}`,
+            }}
+            title="Change Visual Theme"
+          >
+            <Palette className="w-4 h-4" />
+          </button>
+
+          {isThemeOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsThemeOpen(false)}
+              />
