@@ -55,3 +55,26 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Keyboard className="w-5 h-5 stroke-[2.2]" />
           </div>
+
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-lg tracking-tight font-sans" style={{ color: theme.text }}>
+                TypePulse
+              </span>
+              <span
+                className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full tracking-wider font-mono border"
+                style={{
+                  backgroundColor: theme.primaryLight,
+                  color: theme.primary,
+                  borderColor: `${theme.primary}40`,
+                }}
+              >
+                PRO
+              </span>
+            </div>
+            <p className="text-xs font-mono hidden sm:block opacity-65" style={{ color: theme.textMuted }}>
+              zero-latency speed & telemetry
+            </p>
+          </div>
+        </button>
+      </div>
