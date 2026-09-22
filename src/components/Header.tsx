@@ -158,3 +158,27 @@ export const Header: React.FC<HeaderProps> = ({
                 className="fixed inset-0 z-40"
                 onClick={() => setIsThemeOpen(false)}
               />
+                <div
+                className="absolute right-0 mt-2 w-56 p-2 rounded-xl shadow-2xl z-50 border backdrop-blur-md"
+                style={{
+                  backgroundColor: theme.cardBg,
+                  borderColor: theme.border,
+                  color: theme.text,
+                }}
+              >
+                <div className="px-2 py-1.5 text-[11px] font-mono uppercase font-semibold tracking-wider flex items-center justify-between opacity-70" style={{ color: theme.textMuted }}>
+                  <span>Theme Colorway</span>
+                  <Sparkles className="w-3 h-3 text-amber-400" />
+                </div>
+                <div className="mt-1 space-y-1">
+                  {(Object.keys(THEMES) as ThemeId[]).map((themeKey) => {
+                    const th = THEMES[themeKey];
+                    const isSelected = preferences.theme === themeKey;
+                    return (
+                      <button
+                        key={themeKey}
+                        onClick={() => {
+                          onUpdatePreferences({ theme: themeKey });
+                          setIsThemeOpen(false);
+                        }}
+                      
