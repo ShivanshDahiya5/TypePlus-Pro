@@ -181,4 +181,34 @@ export const Header: React.FC<HeaderProps> = ({
                           onUpdatePreferences({ theme: themeKey });
                           setIsThemeOpen(false);
                         }}
-                      
+                      className="w-full px-2.5 py-1.5 rounded-lg text-xs font-mono flex items-center justify-between transition-colors hover:opacity-100 cursor-pointer"
+                        style={{
+                          backgroundColor: isSelected ? theme.primaryLight : 'transparent',
+                          color: isSelected ? theme.primary : theme.text,
+                        }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span
+                            className="w-3 h-3 rounded-full border border-black/20"
+                            style={{ backgroundColor: th.primary }}
+                          />
+                          <span>{th.name}</span>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Quick Settings Dropdown */}
+        <div className="relative">
+          <button
+            id="btn-quick-settings"
+            onClick={() => {
+              setIsSettingsOpen(!isSettingsOpen);
+              setIsThemeOpen(false);
+            }}
