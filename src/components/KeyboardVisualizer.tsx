@@ -67,3 +67,7 @@ export const KeyboardVisualizer: React.FC<KeyboardVisualizerProps> = ({ theme })
               return (
                 <div
                   key={kIdx}
+                  className={`flex items-center justify-center rounded-lg border font-semibold shadow-xs transition-transform duration-75 ${widthClass}`}
+                  style={{
+                    backgroundColor: isActive ? theme.primary : theme.bg,
+                    borderColor: isActive ? theme.primary : theme.border,
