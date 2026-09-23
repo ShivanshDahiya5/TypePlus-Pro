@@ -27,3 +27,16 @@ export const KeyboardVisualizer: React.FC<KeyboardVisualizerProps> = ({ theme })
     const handleKeyUp = () => {
       setActiveKey(null);
     };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
+  return (
+    <div
+      className="w-full max-w-2xl mx-auto mt-5 p-4 rounded-2xl border select-none font-mono text-[11px] shadow-lg backdrop-blur-md"
+      style={{
