@@ -57,3 +57,13 @@ export const KeyboardVisualizer: React.FC<KeyboardVisualizerProps> = ({ theme })
                 k === 'caps' ||
                 k === 'enter'
               ) {
+                widthClass = 'w-12 sm:w-14 h-7 sm:h-8.5 text-[9px] uppercase';
+              } else if (k === 'shift') {
+                widthClass = 'w-14 sm:w-16 h-7 sm:h-8.5 text-[9px] uppercase';
+              } else if (k === 'space') {
+                widthClass = 'w-48 sm:w-64 h-7 sm:h-8.5 text-[9px] uppercase';
+              }
+
+              return (
+                <div
+                  key={kIdx}
