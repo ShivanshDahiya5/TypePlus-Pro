@@ -249,3 +249,18 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
               >
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
+                    <tr
+                      className="border-b"
+                      style={{
+                        backgroundColor: theme.bg,
+                        borderColor: theme.border,
+                      }}
+                    >
+                      <th className="p-3.5 font-semibold opacity-70">Date</th>
+                      <th className="p-3.5 font-semibold opacity-70">Mode</th>
+                      <th className="p-3.5 font-semibold opacity-70">Speed</th>
+                      <th className="p-3.5 font-semibold opacity-70">Accuracy</th>
+                      <th className="p-3.5 font-semibold opacity-70">Consistency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
