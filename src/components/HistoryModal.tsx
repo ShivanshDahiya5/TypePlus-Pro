@@ -234,3 +234,18 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                 </div>
               )}
             </div>
+
+            {history.length === 0 ? (
+              <div
+                className="py-12 text-center text-xs opacity-60 border rounded-2xl"
+                style={{ borderColor: theme.border }}
+              >
+                No tests completed yet. Complete your first typing test!
+              </div>
+            ) : (
+              <div
+                className="border rounded-2xl overflow-hidden shadow-sm"
+                style={{ borderColor: theme.border }}
+              >
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
