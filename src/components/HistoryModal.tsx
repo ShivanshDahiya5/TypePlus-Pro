@@ -285,3 +285,20 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                             ({item.rawWpm} raw)
                           </span>
                         </td>
+                        <td
+                          className="p-3.5 font-semibold"
+                          style={{
+                            color: item.accuracy >= 95 ? '#10b981' : theme.accent,
+                          }}
+                        >
+                          {item.accuracy}%
+                        </td>
+                        <td className="p-3.5 opacity-80">{item.consistency}%</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </div>
