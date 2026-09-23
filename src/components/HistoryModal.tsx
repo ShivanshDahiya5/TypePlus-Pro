@@ -202,3 +202,35 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                 <History className="w-4 h-4 text-indigo-400" />
                 <span>Recent Tests ({history.length})</span>
               </div>
+
+              {history.length > 0 && !showClearConfirm && (
+                <button
+                  onClick={() => setShowClearConfirm(true)}
+                  className="text-[11px] text-rose-400 hover:text-rose-300 flex items-center gap-1 cursor-pointer transition-colors"
+                >
+                  <Trash2 className="w-3 h-3" />
+                  <span>Clear History</span>
+                </button>
+              )}
+
+              {showClearConfirm && (
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-rose-400 font-semibold">Delete all data?</span>
+                  <button
+                    onClick={() => {
+                      onClearHistory();
+                      setShowClearConfirm(false);
+                    }}
+                    className="px-2.5 py-1 rounded-md bg-rose-500 text-white font-bold text-[10px] cursor-pointer"
+                  >
+                    Yes, Delete
+                  </button>
+                  <button
+                    onClick={() => setShowClearConfirm(false)}
+                    className="px-2.5 py-1 rounded-md bg-black/20 text-[10px] cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+            </div>
