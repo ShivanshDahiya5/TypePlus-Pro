@@ -264,3 +264,15 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                     </tr>
                   </thead>
                   <tbody>
+                    {history.map((item, idx) => (
+                      <tr
+                        key={item.id || idx}
+                        className="border-b last:border-0 hover:bg-white/5 transition-colors"
+                        style={{ borderColor: theme.border }}
+                      >
+                        <td className="p-3.5 opacity-80 whitespace-nowrap">
+                          {formatDate(item.timestamp)}
+                        </td>
+                        <td className="p-3.5 capitalize opacity-90">
+                          {item.modeDescription}
+                        </td>
