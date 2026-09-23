@@ -27,7 +27,7 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
 }) => {
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
-    if (!isOpen) return null;
+  if (!isOpen) return null;
 
   const formatTimeTyped = (seconds: number) => {
     if (seconds < 60) return `${seconds}s`;
@@ -55,7 +55,7 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
           borderColor: theme.border,
           color: theme.text,
         }}
-        >
+      >
         {/* Modal Header */}
         <div
           className="flex items-center justify-between pb-4 border-b"
