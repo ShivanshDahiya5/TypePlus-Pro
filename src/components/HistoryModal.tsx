@@ -173,3 +173,32 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                     key={modeName}
                     className="p-3 rounded-xl border flex flex-col justify-between"
                     style={{
+                      backgroundColor: theme.cardBg,
+                      borderColor: theme.border,
+                    }}
+                  >
+                    <span className="text-[11px] capitalize opacity-80 truncate">
+                      {modeName}
+                    </span>
+                    <span
+                      className="text-lg font-bold mt-1"
+                      style={{ color: theme.primary }}
+                    >
+                      {pbWpm} <span className="text-xs font-normal">wpm</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Past Tests Log */}
+          <div>
+            <div
+              className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center justify-between"
+              style={{ color: theme.textMuted }}
+            >
+              <div className="flex items-center gap-2">
+                <History className="w-4 h-4 text-indigo-400" />
+                <span>Recent Tests ({history.length})</span>
+              </div>
