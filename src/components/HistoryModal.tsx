@@ -276,3 +276,12 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                         <td className="p-3.5 capitalize opacity-90">
                           {item.modeDescription}
                         </td>
+                        <td
+                          className="p-3.5 font-bold"
+                          style={{ color: theme.primary }}
+                        >
+                          {item.wpm}{' '}
+                          <span className="text-[10px] font-normal opacity-70">
+                            ({item.rawWpm} raw)
+                          </span>
+                        </td>
