@@ -71,3 +71,18 @@ export const KeyboardVisualizer: React.FC<KeyboardVisualizerProps> = ({ theme })
                   style={{
                     backgroundColor: isActive ? theme.primary : theme.bg,
                     borderColor: isActive ? theme.primary : theme.border,
+                    color: isActive ? '#ffffff' : theme.textMuted,
+                    transform: isActive ? 'scale(0.92)' : 'scale(1)',
+                    boxShadow: isActive ? `0 0 12px ${theme.primary}` : 'none',
+                  }}
+                >
+                  {k}
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
