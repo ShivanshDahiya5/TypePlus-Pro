@@ -302,3 +302,24 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
             )}
           </div>
         </div>
+
+        {/* Modal Footer */}
+        <div
+          className="pt-4 border-t flex justify-end"
+          style={{ borderColor: theme.border }}
+        >
+          <button
+            onClick={onClose}
+            className="px-6 py-2.5 rounded-xl text-xs font-semibold cursor-pointer transition-all hover:scale-105 shadow-md shadow-indigo-600/20"
+            style={{
+              backgroundColor: theme.primary,
+              color: '#ffffff',
+            }}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
