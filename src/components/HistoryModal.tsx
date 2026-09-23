@@ -153,3 +153,23 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Personal Bests by Mode */}
+          {Object.keys(overallStats.bestRecords).length > 0 && (
+            <div
+              className="p-5 rounded-2xl border shadow-sm"
+              style={{ backgroundColor: theme.bg, borderColor: theme.border }}
+            >
+              <div
+                className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-2"
+                style={{ color: theme.accent }}
+              >
+                <Award className="w-4 h-4" />
+                <span>Personal Bests (by test mode)</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {Object.entries(overallStats.bestRecords).map(([modeName, pbWpm]) => (
+                  <div
+                    key={modeName}
+                    className="p-3 rounded-xl border flex flex-col justify-between"
+                    style={{
