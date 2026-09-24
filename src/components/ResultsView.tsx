@@ -72,3 +72,30 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     });
   };
 
+    // Timeline chart dimensions and calculations
+  const timeline = result.timeline || [];
+  const maxWpm = Math.max(
+    10,
+    ...timeline.map((d) => Math.max(d.wpm, d.rawWpm)),
+    result.rawWpm,
+    result.wpm
+  );
+  const chartHeight = 160;
+  const chartWidth = 600;
+  const padding = { top: 20, right: 30, bottom: 25, left: 40 };
+
+  const usableWidth = chartWidth - padding.left - padding.right;
+  const usableHeight = chartHeight - padding.top - padding.bottom;
+
+  // Build SVG path points
+  const pointsWpm = timeline.map((pt, idx) => {
+    const x = padding.left + (idx / Math.max(1, timeline.length - 1)) * usableWidth;
+    const y = padding.top + usableHeight - (pt.wpm / maxWpm) * usableHeight;
+    return { x, y, pt };
+  });
+
+  const pointsRaw = timeline.map((pt, idx) => {
+    const x = padding.left + (idx / Math.max(1, timeline.length - 1)) * usableWidth;
+    const y = padding.top + usableHeight - (pt.rawWpm / maxWpm) * usableHeight;
+    return { x, y, pt };
+  });
