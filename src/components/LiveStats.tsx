@@ -113,3 +113,20 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
                 >
                   {timeRemaining ?? totalTime ?? 0}
                 </span>
+                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                  s
+                </span>
+              </div>
+              <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
+                limit {totalTime}s
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="flex items-baseline justify-end gap-1.5">
+                <span
+                  className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+                  style={{ color: theme.text }}
+                >
+                  {Math.min(currentWordIndex, totalWords)}
+                </span>
