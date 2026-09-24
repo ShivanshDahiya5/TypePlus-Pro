@@ -122,3 +122,41 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         color: theme.text,
       }}
     >
+        {/* Top Banner (Personal Best or Test Summary) */}
+      <div
+        className="flex items-center justify-between flex-wrap gap-3 pb-6 border-b"
+        style={{ borderColor: theme.border }}
+      >
+        <div className="flex items-center gap-3">
+          {result.isPersonalBest ? (
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 font-bold text-sm shadow-md">
+              <Trophy className="w-4 h-4" />
+              <span>NEW PERSONAL BEST!</span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-indigo-500/10 border border-indigo-500/25 font-semibold text-xs text-indigo-300">
+              <Activity className="w-4 h-4 text-indigo-400" />
+              <span className="capitalize">{result.modeDescription} Completed</span>
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleCopyResult}
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all hover:opacity-100 opacity-85 cursor-pointer shadow-sm"
+            style={{
+              backgroundColor: theme.bg,
+              border: `1px solid ${theme.border}`,
+              color: theme.text,
+            }}
+          >
+            {copied ? (
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
+            ) : (
+              <Copy className="w-3.5 h-3.5 text-indigo-400" />
+            )}
+            <span>{copied ? 'Copied Card!' : 'Copy Result'}</span>
+          </button>
+        </div>
+      </div>
