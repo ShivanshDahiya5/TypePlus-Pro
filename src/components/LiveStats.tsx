@@ -140,3 +140,17 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
             </div>
           )}
         </div>
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
+          style={{
+            backgroundColor: 'rgba(99, 102, 241, 0.12)',
+            color: '#818cf8',
+            border: '1px solid rgba(99, 102, 241, 0.25)',
+          }}
+        >
+          <Clock className="w-5 h-5" />
+        </div>
+      </div>
+    </div>
+  );
+};
