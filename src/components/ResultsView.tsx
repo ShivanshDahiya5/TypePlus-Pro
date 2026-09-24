@@ -99,3 +99,26 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     const y = padding.top + usableHeight - (pt.rawWpm / maxWpm) * usableHeight;
     return { x, y, pt };
   });
+
+    const pathWpm =
+    pointsWpm.length > 1
+      ? `M ${pointsWpm[0].x} ${pointsWpm[0].y} ` +
+        pointsWpm.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
+      : '';
+
+  const pathRaw =
+    pointsRaw.length > 1
+      ? `M ${pointsRaw[0].x} ${pointsRaw[0].y} ` +
+        pointsRaw.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
+      : '';
+
+  return (
+    <div
+      id="results-container"
+      className="w-full max-w-4xl mx-auto rounded-3xl p-6 sm:p-10 font-mono shadow-2xl backdrop-blur-md"
+      style={{
+        backgroundColor: theme.cardBg,
+        border: `1px solid ${theme.border}`,
+        color: theme.text,
+      }}
+    >
