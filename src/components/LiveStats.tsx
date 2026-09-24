@@ -130,3 +130,13 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
                 >
                   {Math.min(currentWordIndex, totalWords)}
                 </span>
+                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                  /{totalWords}
+                </span>
+              </div>
+              <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
+                words done
+              </div>
+            </div>
+          )}
+        </div>
