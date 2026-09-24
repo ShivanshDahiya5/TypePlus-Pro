@@ -68,3 +68,22 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Accuracy Meter */}
+      <div className="flex items-center gap-3.5">
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
+          style={{
+            backgroundColor: 'rgba(16, 185, 129, 0.12)',
+            color: '#10b981',
+            border: '1px solid rgba(16, 185, 129, 0.25)',
+          }}
+        >
+          <Target className="w-5 h-5" />
+        </div>
+        <div>
+          <div className="flex items-baseline gap-1.5">
+            <span
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight font-mono"
+              style={{ color: accuracy >= 95 ? '#10b981' : accuracy >= 85 ? theme.accent : '#f43f5e' }}
+            ></span>
