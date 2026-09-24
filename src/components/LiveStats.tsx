@@ -51,3 +51,20 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
         >
           <Gauge className="w-5 h-5" />
         </div>
+        <div>
+          <div className="flex items-baseline gap-1.5">
+            <span
+              className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+              style={{ color: theme.primary }}
+            >
+              {wpm}
+            </span>
+            <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+              wpm
+            </span>
+          </div>
+          <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
+            <span>raw {rawWpm}</span>
+          </div>
+        </div>
+      </div>
