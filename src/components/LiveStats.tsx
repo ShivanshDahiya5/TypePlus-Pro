@@ -100,3 +100,16 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Progress / Timer Counter */}
+      <div className="flex items-center gap-3.5 text-right">
+        <div>
+          {mode === 'time' ? (
+            <div>
+              <div className="flex items-baseline justify-end gap-1.5">
+                <span
+                  className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+                  style={{ color: theme.text }}
+                >
+                  {timeRemaining ?? totalTime ?? 0}
+                </span>
