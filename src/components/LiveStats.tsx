@@ -39,3 +39,15 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
         border: `1px solid ${theme.border}`,
       }}
     >
+        {/* Real-time WPM Counter */}
+      <div className="flex items-center gap-3.5">
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
+          style={{
+            backgroundColor: theme.primaryLight,
+            color: theme.primary,
+            border: `1px solid ${theme.primary}30`,
+          }}
+        >
+          <Gauge className="w-5 h-5" />
+        </div>
