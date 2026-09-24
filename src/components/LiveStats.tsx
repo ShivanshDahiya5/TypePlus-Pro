@@ -86,4 +86,17 @@ export const LiveStats: React.FC<LiveStatsProps> = ({
             <span
               className="text-2xl sm:text-3xl font-extrabold tracking-tight font-mono"
               style={{ color: accuracy >= 95 ? '#10b981' : accuracy >= 85 ? theme.accent : '#f43f5e' }}
-            ></span>
+            >
+                {accuracy}%
+            </span>
+            <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+              acc
+            </span>
+          </div>
+          <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
+            <span className={errorsCount > 0 ? 'text-rose-400 font-semibold' : ''}>
+              {errorsCount} error{errorsCount !== 1 ? 's' : ''}
+            </span>
+          </div>
+        </div>
+      </div>
