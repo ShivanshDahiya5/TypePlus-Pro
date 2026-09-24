@@ -160,3 +160,30 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Hero Stats Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-6">
+        {/* WPM */}
+        <div
+          className="p-5 rounded-2xl relative overflow-hidden shadow-sm"
+          style={{ backgroundColor: theme.bg, border: `1px solid ${theme.border}` }}
+        >
+          <div
+            className="text-[11px] uppercase tracking-widest font-bold opacity-75 mb-1"
+            style={{ color: theme.textMuted }}
+          >
+            Net Speed
+          </div>
+          <div
+            className="text-4xl sm:text-5xl font-black tracking-tight"
+            style={{ color: theme.primary }}
+          >
+            {result.wpm}
+          </div>
+          <div
+            className="text-xs font-bold mt-1 opacity-80"
+            style={{ color: theme.primary }}
+          >
+            WPM
+          </div>
+        </div>
