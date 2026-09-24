@@ -46,3 +46,29 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
       }
     }
   }, [result.isPersonalBest, theme]);
+
+    // Keyboard shortcuts (Tab / Enter for Next Test, Escape for Repeat)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Tab' || e.key === 'Enter') {
+        e.preventDefault();
+        onNextTest();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        onRepeatTest();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onNextTest, onRepeatTest]);
+
+  // Copy shareable summary to clipboard
+  const handleCopyResult = () => {
+    const text = `⌨️ TypePulse Result:\n🚀 Speed: ${result.wpm} WPM (Raw: ${result.rawWpm})\n🎯 Accuracy: ${result.accuracy}%\n⏱️ Mode: ${result.modeDescription}\n🔥 Consistency: ${result.consistency}%\n`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
