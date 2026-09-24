@@ -3,154 +3,153 @@ import { Gauge, Target, Clock } from 'lucide-react';
 import { TestMode, ThemeConfig } from '../types';
 
 interface LiveStatsProps {
-  theme: ThemeConfig;
-  wpm: number;
-  rawWpm: number;
-  accuracy: number;
-  errorsCount: number;
-  timeRemaining?: number;
-  totalTime?: number;
-  currentWordIndex: number;
-  totalWords: number;
-  mode: TestMode;
-  isTestActive: boolean;
+    theme: ThemeConfig;
+    wpm: number;
+    rawWpm: number;
+    accuracy: number;
+    errorsCount: number;
+    timeRemaining?: number;
+    totalTime?: number;
+    currentWordIndex: number;
+    totalWords: number;
+    mode: TestMode;
+    isTestActive: boolean;
 }
 
 export const LiveStats: React.FC<LiveStatsProps> = ({
-  theme,
-  wpm,
-  rawWpm,
-  accuracy,
-  errorsCount,
-  timeRemaining,
-  totalTime,
-  currentWordIndex,
-  totalWords,
-  mode,
-  isTestActive,
+    theme,
+    wpm,
+    rawWpm,
+    accuracy,
+    errorsCount,
+    timeRemaining,
+    totalTime,
+    currentWordIndex,
+    totalWords,
+    mode,
+    isTestActive,
 }) => {
-  return (
-    <div
-      className={`w-full max-w-4xl mx-auto mb-5 px-5 py-3 rounded-2xl flex items-center justify-between gap-4 font-mono transition-all duration-300 backdrop-blur-md shadow-md ${
-        isTestActive ? 'opacity-100 scale-100' : 'opacity-80 scale-[0.99]'
-      }`}
-      style={{
-        backgroundColor: theme.cardBg,
-        border: `1px solid ${theme.border}`,
-      }}
-    >
-        {/* Real-time WPM Counter */}
-      <div className="flex items-center gap-3.5">
+    return (
         <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
-          style={{
-            backgroundColor: theme.primaryLight,
-            color: theme.primary,
-            border: `1px solid ${theme.primary}30`,
-          }}
+            className={`w-full max-w-4xl mx-auto mb-5 px-5 py-3 rounded-2xl flex items-center justify-between gap-4 font-mono transition-all duration-300 backdrop-blur-md shadow-md ${isTestActive ? 'opacity-100 scale-100' : 'opacity-80 scale-[0.99]'
+                }`}
+            style={{
+                backgroundColor: theme.cardBg,
+                border: `1px solid ${theme.border}`,
+            }}
         >
-          <Gauge className="w-5 h-5" />
-        </div>
-        <div>
-          <div className="flex items-baseline gap-1.5">
-            <span
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
-              style={{ color: theme.primary }}
-            >
-              {wpm}
-            </span>
-            <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
-              wpm
-            </span>
-          </div>
-          <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
-            <span>raw {rawWpm}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Accuracy Meter */}
-      <div className="flex items-center gap-3.5">
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
-          style={{
-            backgroundColor: 'rgba(16, 185, 129, 0.12)',
-            color: '#10b981',
-            border: '1px solid rgba(16, 185, 129, 0.25)',
-          }}
-        >
-          <Target className="w-5 h-5" />
-        </div>
-        <div>
-          <div className="flex items-baseline gap-1.5">
-            <span
-              className="text-2xl sm:text-3xl font-extrabold tracking-tight font-mono"
-              style={{ color: accuracy >= 95 ? '#10b981' : accuracy >= 85 ? theme.accent : '#f43f5e' }}
-            >
-                {accuracy}%
-            </span>
-            <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
-              acc
-            </span>
-          </div>
-          <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
-            <span className={errorsCount > 0 ? 'text-rose-400 font-semibold' : ''}>
-              {errorsCount} error{errorsCount !== 1 ? 's' : ''}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Progress / Timer Counter */}
-      <div className="flex items-center gap-3.5 text-right">
-        <div>
-          {mode === 'time' ? (
-            <div>
-              <div className="flex items-baseline justify-end gap-1.5">
-                <span
-                  className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
-                  style={{ color: theme.text }}
+            {/* Real-time WPM Counter */}
+            <div className="flex items-center gap-3.5">
+                <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
+                    style={{
+                        backgroundColor: theme.primaryLight,
+                        color: theme.primary,
+                        border: `1px solid ${theme.primary}30`,
+                    }}
                 >
-                  {timeRemaining ?? totalTime ?? 0}
-                </span>
-                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
-                  s
-                </span>
-              </div>
-              <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
-                limit {totalTime}s
-              </div>
+                    <Gauge className="w-5 h-5" />
+                </div>
+                <div>
+                    <div className="flex items-baseline gap-1.5">
+                        <span
+                            className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+                            style={{ color: theme.primary }}
+                        >
+                            {wpm}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                            wpm
+                        </span>
+                    </div>
+                    <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
+                        <span>raw {rawWpm}</span>
+                    </div>
+                </div>
             </div>
-          ) : (
-            <div>
-              <div className="flex items-baseline justify-end gap-1.5">
-                <span
-                  className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
-                  style={{ color: theme.text }}
+
+            {/* Accuracy Meter */}
+            <div className="flex items-center gap-3.5">
+                <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
+                    style={{
+                        backgroundColor: 'rgba(16, 185, 129, 0.12)',
+                        color: '#10b981',
+                        border: '1px solid rgba(16, 185, 129, 0.25)',
+                    }}
                 >
-                  {Math.min(currentWordIndex, totalWords)}
-                </span>
-                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
-                  /{totalWords}
-                </span>
-              </div>
-              <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
-                words done
-              </div>
+                    <Target className="w-5 h-5" />
+                </div>
+                <div>
+                    <div className="flex items-baseline gap-1.5">
+                        <span
+                            className="text-2xl sm:text-3xl font-extrabold tracking-tight font-mono"
+                            style={{ color: accuracy >= 95 ? '#10b981' : accuracy >= 85 ? theme.accent : '#f43f5e' }}
+                        >
+                            {accuracy}%
+                        </span>
+                        <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                            acc
+                        </span>
+                    </div>
+                    <div className="text-[11px] font-medium opacity-65 flex items-center gap-1" style={{ color: theme.textMuted }}>
+                        <span className={errorsCount > 0 ? 'text-rose-400 font-semibold' : ''}>
+                            {errorsCount} error{errorsCount !== 1 ? 's' : ''}
+                        </span>
+                    </div>
+                </div>
             </div>
-          )}
+
+            {/* Progress / Timer Counter */}
+            <div className="flex items-center gap-3.5 text-right">
+                <div>
+                    {mode === 'time' ? (
+                        <div>
+                            <div className="flex items-baseline justify-end gap-1.5">
+                                <span
+                                    className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+                                    style={{ color: theme.text }}
+                                >
+                                    {timeRemaining ?? totalTime ?? 0}
+                                </span>
+                                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                                    s
+                                </span>
+                            </div>
+                            <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
+                                limit {totalTime}s
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <div className="flex items-baseline justify-end gap-1.5">
+                                <span
+                                    className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono"
+                                    style={{ color: theme.text }}
+                                >
+                                    {Math.min(currentWordIndex, totalWords)}
+                                </span>
+                                <span className="text-[11px] uppercase tracking-widest font-bold opacity-75" style={{ color: theme.textMuted }}>
+                                    /{totalWords}
+                                </span>
+                            </div>
+                            <div className="text-[11px] font-medium opacity-65" style={{ color: theme.textMuted }}>
+                                words done
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
+                    style={{
+                        backgroundColor: 'rgba(99, 102, 241, 0.12)',
+                        color: '#818cf8',
+                        border: '1px solid rgba(99, 102, 241, 0.25)',
+                    }}
+                >
+                    <Clock className="w-5 h-5" />
+                </div>
+            </div>
         </div>
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center hidden sm:flex shadow-md"
-          style={{
-            backgroundColor: 'rgba(99, 102, 241, 0.12)',
-            color: '#818cf8',
-            border: '1px solid rgba(99, 102, 241, 0.25)',
-          }}
-        >
-          <Clock className="w-5 h-5" />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
