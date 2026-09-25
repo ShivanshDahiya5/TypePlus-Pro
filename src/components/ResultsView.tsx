@@ -480,3 +480,23 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             <span>PROBLEM KEYS (TYPOS)</span>
             <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
           </div>
+          {result.problemKeys && result.problemKeys.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {result.problemKeys.map((pk, idx) => (
+                <div
+                  key={idx}
+                  className="px-3 py-1.5 rounded-xl flex items-center gap-2 border shadow-xs"
+                  style={{
+                    backgroundColor: theme.cardBg,
+                    borderColor: theme.border,
+                  }}
+                >
+                  <kbd className="px-2 py-0.5 rounded-md bg-black/40 text-rose-400 font-bold uppercase text-xs border border-rose-500/30">
+                    {pk.key === ' ' ? 'SPC' : pk.key}
+                  </kbd>
+                  <span className="text-[11px] opacity-80">
+                    {pk.count} mistake{pk.count > 1 ? 's' : ''}
+                  </span>
+                </div>
+              ))}
+            </div>
