@@ -440,3 +440,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             <span>CHARACTER BREAKDOWN</span>
             <Target className="w-3.5 h-3.5 text-indigo-400" />
           </div>
+          <div className="grid grid-cols-4 gap-2 text-center text-xs">
+            <div className="p-2.5 rounded-xl bg-black/20 border border-slate-800">
+              <div className="font-bold text-emerald-400 text-lg">
+                {result.correctChars}
+              </div>
+              <div className="opacity-70 text-[10px]">Correct</div>
+            </div>
+            <div className="p-2.5 rounded-xl bg-black/20 border border-slate-800">
+              <div className="font-bold text-rose-400 text-lg">
+                {result.incorrectChars}
+              </div>
+              <div className="opacity-70 text-[10px]">Incorrect</div>
+            </div>
