@@ -311,3 +311,32 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
               viewBox={`0 0 ${chartWidth} ${chartHeight}`}
               className="w-full h-44 select-none"
             >
+              {/* Horizontal Grid lines */}
+              {[0, 0.25, 0.5, 0.75, 1].map((pct, i) => {
+                const y = padding.top + usableHeight * (1 - pct);
+                const val = Math.round(maxWpm * pct);
+                return (
+                  <g key={i}>
+                    <line
+                      x1={padding.left}
+                      y1={y}
+                      x2={chartWidth - padding.right}
+                      y2={y}
+                      stroke={theme.border}
+                      strokeDasharray="4 4"
+                      strokeWidth="1"
+                      opacity="0.5"
+                    />
+                    <text
+                      x={padding.left - 6}
+                      y={y + 4}
+                      fill={theme.textMuted}
+                      fontSize="9"
+                      textAnchor="end"
+                      fontFamily="monospace"
+                    >
+                      {val}
+                    </text>
+                  </g>
+                );
+              })}
