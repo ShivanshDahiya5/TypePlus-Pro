@@ -270,3 +270,23 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Speed & Accuracy Timeline Progression Chart */}
+      {timeline.length > 1 && (
+        <div
+          className="my-6 p-5 rounded-2xl shadow-sm"
+          style={{ backgroundColor: theme.bg, border: `1px solid ${theme.border}` }}
+        >
+          <div className="flex items-center justify-between mb-3 text-xs">
+            <div className="flex items-center gap-2 font-semibold">
+              <TrendingUp className="w-4 h-4 text-indigo-400" />
+              <span>Speed & Telemetry Progression</span>
+            </div>
+            <div className="flex items-center gap-4 text-[11px]">
+              <div className="flex items-center gap-1.5">
+                <span
+                  className="w-2.5 h-2.5 rounded-full shadow-sm"
+                  style={{ backgroundColor: theme.primary }}
+                />
+                <span>WPM</span>
+              </div>
