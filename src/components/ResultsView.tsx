@@ -340,3 +340,27 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                   </g>
                 );
               })}
+
+              {/* Raw WPM Path */}
+              {pathRaw && (
+                <path
+                  d={pathRaw}
+                  fill="none"
+                  stroke={theme.textMuted}
+                  strokeWidth="1.5"
+                  strokeDasharray="3 3"
+                  opacity="0.6"
+                />
+              )}
+
+              {/* Net WPM Path */}
+              {pathWpm && (
+                <path
+                  d={pathWpm}
+                  fill="none"
+                  stroke={theme.primary}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              )}
