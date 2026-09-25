@@ -290,3 +290,24 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 />
                 <span>WPM</span>
               </div>
+
+              <div className="flex items-center gap-1.5 opacity-60">
+                <span
+                  className="w-2.5 h-0.5 rounded"
+                  style={{ backgroundColor: theme.textMuted }}
+                />
+                <span>Raw WPM</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-500 shadow-sm" />
+                <span>Errors</span>
+              </div>
+            </div>
+          </div>
+
+          {/* SVG Line Chart */}
+          <div className="w-full overflow-x-auto">
+            <svg
+              viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+              className="w-full h-44 select-none"
+            >
