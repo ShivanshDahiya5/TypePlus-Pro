@@ -199,3 +199,23 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           >
             Accuracy
           </div>
+          <div
+            className="text-4xl sm:text-5xl font-black tracking-tight"
+            style={{
+              color:
+                result.accuracy >= 95
+                  ? '#10b981'
+                  : result.accuracy >= 85
+                  ? theme.accent
+                  : '#f43f5e',
+            }}
+          >
+            {result.accuracy}%
+          </div>
+          <div
+            className="text-xs font-medium mt-1 opacity-70"
+            style={{ color: theme.textMuted }}
+          >
+            {result.correctChars}/{result.totalKeystrokes} chars
+          </div>
+        </div>
