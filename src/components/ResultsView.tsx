@@ -364,3 +364,28 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                   strokeLinejoin="round"
                 />
               )}
+
+              {/* Points & Error Markers */}
+              {pointsWpm.map((pt, idx) => (
+                <g key={idx}>
+                  <circle
+                    cx={pt.x}
+                    cy={pt.y}
+                    r={hoveredPoint === idx ? 5 : 3}
+                    fill={theme.primary}
+                    className="transition-all cursor-pointer"
+                    onMouseEnter={() => setHoveredPoint(idx)}
+                    onMouseLeave={() => setHoveredPoint(null)}
+                  />
+
+                  {pt.pt.errors > 0 && (
+                    <circle
+                      cx={pt.x}
+                      cy={padding.top + usableHeight}
+                      r="4"
+                      fill="#f43f5e"
+                      opacity="0.9"
+                    />
+                  )}
+                </g>
+              ))}
