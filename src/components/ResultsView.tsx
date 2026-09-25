@@ -407,3 +407,21 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                     stroke={theme.border}
                     strokeWidth="1"
                   />
+                  <text
+                    x="0"
+                    y="6"
+                    textAnchor="middle"
+                    fill={theme.text}
+                    fontSize="10"
+                    fontFamily="monospace"
+                    fontWeight="bold"
+                  >
+                    {pointsWpm[hoveredPoint].pt.wpm} wpm (
+                    {pointsWpm[hoveredPoint].pt.second}s)
+                  </text>
+                </g>
+              )}
+            </svg>
+          </div>
+        </div>
+      )}
