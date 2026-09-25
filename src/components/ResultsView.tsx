@@ -219,3 +219,28 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             {result.correctChars}/{result.totalKeystrokes} chars
           </div>
         </div>
+
+        {/* Raw WPM */}
+        <div
+          className="p-5 rounded-2xl relative overflow-hidden shadow-sm"
+          style={{ backgroundColor: theme.bg, border: `1px solid ${theme.border}` }}
+        >
+          <div
+            className="text-[11px] uppercase tracking-widest font-bold opacity-75 mb-1"
+            style={{ color: theme.textMuted }}
+          >
+            Raw Speed
+          </div>
+          <div
+            className="text-3xl sm:text-4xl font-black tracking-tight"
+            style={{ color: theme.text }}
+          >
+            {result.rawWpm}
+          </div>
+          <div
+            className="text-xs font-medium mt-1 opacity-70"
+            style={{ color: theme.textMuted }}
+          >
+            {result.cpm} CPM
+          </div>
+        </div>
