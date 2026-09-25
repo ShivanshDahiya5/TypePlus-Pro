@@ -500,3 +500,11 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 </div>
               ))}
             </div>
+            ) : (
+            <div className="text-xs opacity-80 py-3 flex items-center gap-2 text-emerald-400">
+              <Check className="w-4 h-4" />
+              <span>Flawless accuracy! Zero recurring typo keys detected.</span>
+            </div>
+          )}
+        </div>
+      </div>
