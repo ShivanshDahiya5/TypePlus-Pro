@@ -467,3 +467,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             </div>
           </div>
         </div>
+
+        {/* Problem Keys */}
+        <div
+          className="p-5 rounded-2xl shadow-sm"
+          style={{ backgroundColor: theme.bg, border: `1px solid ${theme.border}` }}
+        >
+          <div
+            className="text-xs font-semibold mb-3 flex items-center justify-between"
+            style={{ color: theme.textMuted }}
+          >
+            <span>PROBLEM KEYS (TYPOS)</span>
+            <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+          </div>
