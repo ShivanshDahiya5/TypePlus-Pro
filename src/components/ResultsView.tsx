@@ -389,3 +389,21 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                   )}
                 </g>
               ))}
+
+              {/* Tooltip */}
+              {hoveredPoint !== null && pointsWpm[hoveredPoint] && (
+                <g
+                  transform={`translate(${pointsWpm[hoveredPoint].x}, ${
+                    pointsWpm[hoveredPoint].y - 30
+                  })`}
+                >
+                  <rect
+                    x="-45"
+                    y="-10"
+                    width="90"
+                    height="24"
+                    rx="4"
+                    fill={theme.cardBg}
+                    stroke={theme.border}
+                    strokeWidth="1"
+                  />
