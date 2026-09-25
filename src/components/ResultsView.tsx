@@ -453,3 +453,17 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
               </div>
               <div className="opacity-70 text-[10px]">Incorrect</div>
             </div>
+            <div className="p-2.5 rounded-xl bg-black/20 border border-slate-800">
+              <div className="font-bold text-amber-400 text-lg">
+                {result.extraChars}
+              </div>
+              <div className="opacity-70 text-[10px]">Extra</div>
+            </div>
+            <div className="p-2.5 rounded-xl bg-black/20 border border-slate-800">
+              <div className="font-bold text-slate-400 text-lg">
+                {result.missedChars}
+              </div>
+              <div className="opacity-70 text-[10px]">Missed</div>
+            </div>
+          </div>
+        </div>
