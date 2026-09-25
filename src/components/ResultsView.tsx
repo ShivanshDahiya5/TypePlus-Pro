@@ -187,3 +187,15 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             WPM
           </div>
         </div>
+
+        {/* Accuracy */}
+        <div
+          className="p-5 rounded-2xl relative overflow-hidden shadow-sm"
+          style={{ backgroundColor: theme.bg, border: `1px solid ${theme.border}` }}
+        >
+          <div
+            className="text-[11px] uppercase tracking-widest font-bold opacity-75 mb-1"
+            style={{ color: theme.textMuted }}
+          >
+            Accuracy
+          </div>
