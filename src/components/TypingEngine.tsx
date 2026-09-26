@@ -141,3 +141,18 @@ const WordItem = memo<WordItemProps>(
   }
 );
 WordItem.displayName = 'WordItem';
+
+export const TypingEngine: React.FC<TypingEngineProps> = ({
+  theme,
+  settings,
+  wordsList,
+  quoteAuthor,
+  soundType,
+  soundVolume,
+  caretStyle,
+  fontSize,
+  blindMode,
+  onFinishTest,
+  onLiveUpdate,
+  onRestart,
+}) => {
