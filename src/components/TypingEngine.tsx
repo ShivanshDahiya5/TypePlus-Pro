@@ -48,3 +48,18 @@ interface WordItemProps {
   currentInputLength: number;
   isFocused: boolean;
 }
+
+const WordItem = memo<WordItemProps>(
+  ({
+    wordObj,
+    wordIdx,
+    isCurrent,
+    theme,
+    blindMode,
+    caretStyle,
+    currentInputLength,
+    isFocused,
+  }) => {
+    const hasError =
+      wordObj.isComplete &&
+      wordObj.characters.some((c) => c.status === 'incorrect' || c.status === 'extra');
