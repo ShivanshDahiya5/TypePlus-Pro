@@ -508,3 +508,21 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           )}
         </div>
       </div>
+
+      {/* Action Buttons */}
+      <div
+        className="flex items-center justify-center gap-3.5 pt-5 border-t flex-wrap"
+        style={{ borderColor: theme.border }}
+      >
+        <button
+          id="btn-next-test"
+          onClick={onNextTest}
+          className="px-7 py-3 rounded-xl font-semibold text-sm flex items-center gap-2.5 transition-all hover:scale-105 shadow-lg shadow-indigo-600/25 cursor-pointer"
+          style={{
+            backgroundColor: theme.primary,
+            color: '#ffffff',
+          }}
+        >
+          <Play className="w-4 h-4 fill-current" />
+          <span>Next Test (Tab / Enter)</span>
+        </button>
