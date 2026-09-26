@@ -125,3 +125,19 @@ const WordItem = memo<WordItemProps>(
             <span
               className={`inline-block pointer-events-none ${
                 caretStyle === 'line'
+                ? 'w-[2.5px] h-[1.2em] rounded-full align-middle'
+                  : caretStyle === 'block'
+                  ? 'w-[0.6em] h-[1.2em] opacity-40 align-middle rounded-xs'
+                  : 'w-[0.6em] h-[3px] rounded-full align-bottom'
+              }`}
+              style={{
+                backgroundColor: theme.caret,
+                boxShadow: `0 0 10px ${theme.caret}`,
+              }}
+            />
+          )}
+      </div>
+    );
+  }
+);
+WordItem.displayName = 'WordItem';
