@@ -63,3 +63,14 @@ const WordItem = memo<WordItemProps>(
     const hasError =
       wordObj.isComplete &&
       wordObj.characters.some((c) => c.status === 'incorrect' || c.status === 'extra');
+
+      return (
+      <div
+        data-word-idx={wordIdx}
+        className={`relative inline-flex items-center transition-opacity select-none ${
+          isCurrent ? 'opacity-100 font-medium' : 'opacity-80'
+        } ${hasError ? 'border-b-2 border-rose-500/80' : ''}`}
+      >
+        {wordObj.characters.map((charObj, charIdx) => {
+          let charColor = theme.charUntyped;
+          let bgColor = 'transparent';
