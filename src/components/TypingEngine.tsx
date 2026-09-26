@@ -156,3 +156,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
   onLiveUpdate,
   onRestart,
 }) => {
+    // Core typing state
+  const [currentWordIdx, setCurrentWordIdx] = useState(0);
+  const [currentInput, setCurrentInput] = useState('');
+  const [isFocused, setIsFocused] = useState(true);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
+  const [wordStates, setWordStates] = useState<WordState[]>([]);
+
+  // Keystrokes & error counters
+  const [correctCharsCount, setCorrectCharsCount] = useState(0);
+  const [incorrectCharsCount, setIncorrectCharsCount] = useState(0);
+  const [extraCharsCount, setExtraCharsCount] = useState(0);
+  const [missedCharsCount, setMissedCharsCount] = useState(0);
+  const [correctKeystrokes, setCorrectKeystrokes] = useState(0);
+  const [errorKeystrokes, setErrorKeystrokes] = useState(0);
+  const [totalKeystrokes, setTotalKeystrokes] = useState(0);
