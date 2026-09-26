@@ -84,3 +84,16 @@ const WordItem = memo<WordItemProps>(
             charColor = blindMode ? theme.charUntyped : theme.charExtra;
             bgColor = blindMode ? 'transparent' : 'rgba(225, 29, 72, 0.25)';
           }
+
+          const isCaretHere =
+            isCurrent && isFocused && caretStyle !== 'off' && charIdx === currentInputLength;
+
+          return (
+            <span
+              key={charIdx}
+              className="relative inline-block px-[0.5px] rounded-xs"
+              style={{
+                color: charColor,
+                backgroundColor: bgColor,
+              }}
+            >
