@@ -36,3 +36,15 @@ interface TypingEngineProps {
   }) => void;
   onRestart: () => void;
 }
+
+// Memoized single Word component to avoid re-rendering entire word list on every keystroke
+interface WordItemProps {
+  wordObj: WordState;
+  wordIdx: number;
+  isCurrent: boolean;
+  theme: ThemeConfig;
+  blindMode: boolean;
+  caretStyle: CaretStyle;
+  currentInputLength: number;
+  isFocused: boolean;
+}
