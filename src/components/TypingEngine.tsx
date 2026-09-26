@@ -172,3 +172,23 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
   const [correctKeystrokes, setCorrectKeystrokes] = useState(0);
   const [errorKeystrokes, setErrorKeystrokes] = useState(0);
   const [totalKeystrokes, setTotalKeystrokes] = useState(0);
+
+  // Performance telemetry refs to avoid re-renders during high-speed typing
+  const startTimeRef = useRef<number | null>(null);
+  const lastRecordedSecRef = useRef<number>(0);
+  const timelineRef = useRef<SecondSnapshot[]>([]);
+  const keyStatsRef = useRef<Record<string, { total: number; mistakes: number }>>({});
+  const statsRef = useRef({
+    netCorrectChars: 0,
+    correctCharsCount: 0,
+    incorrectCharsCount: 0,
+    extraCharsCount: 0,
+    missedCharsCount: 0,
+    correctKeystrokes: 0,
+    errorKeystrokes: 0,
+    totalKeystrokes: 0,
+    currentWordIdx: 0,
+  });
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const wordsContainerRef = useRef<HTMLDivElement>(null);
