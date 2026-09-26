@@ -97,3 +97,22 @@ const WordItem = memo<WordItemProps>(
                 backgroundColor: bgColor,
               }}
             >
+                {isCaretHere && (
+                <span
+                  className={`absolute left-0 pointer-events-none z-20 ${
+                    caretStyle === 'line'
+                      ? 'top-0 bottom-0 w-[2.5px] rounded-full'
+                      : caretStyle === 'block'
+                      ? 'inset-0 opacity-40 rounded-xs'
+                      : 'bottom-0 left-0 right-0 h-[3px] rounded-full'
+                  }`}
+                  style={{
+                    backgroundColor: theme.caret,
+                    boxShadow: `0 0 10px ${theme.caret}`,
+                  }}
+                />
+              )}
+              {charObj.char}
+            </span>
+          );
+        })}
