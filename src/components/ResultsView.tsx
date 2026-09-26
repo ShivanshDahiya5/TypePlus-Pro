@@ -47,7 +47,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     }
   }, [result.isPersonalBest, theme]);
 
-    // Keyboard shortcuts (Tab / Enter for Next Test, Escape for Repeat)
+  // Keyboard shortcuts (Tab / Enter for Next Test, Escape for Repeat)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Tab' || e.key === 'Enter') {
@@ -72,7 +72,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     });
   };
 
-    // Timeline chart dimensions and calculations
+  // Timeline chart dimensions and calculations
   const timeline = result.timeline || [];
   const maxWpm = Math.max(
     10,
@@ -100,16 +100,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     return { x, y, pt };
   });
 
-    const pathWpm =
+  const pathWpm =
     pointsWpm.length > 1
       ? `M ${pointsWpm[0].x} ${pointsWpm[0].y} ` +
-        pointsWpm.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
+      pointsWpm.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
       : '';
 
   const pathRaw =
     pointsRaw.length > 1
       ? `M ${pointsRaw[0].x} ${pointsRaw[0].y} ` +
-        pointsRaw.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
+      pointsRaw.slice(1).map((p) => `L ${p.x} ${p.y}`).join(' ')
       : '';
 
   return (
@@ -122,7 +122,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         color: theme.text,
       }}
     >
-        {/* Top Banner (Personal Best or Test Summary) */}
+      {/* Top Banner (Personal Best or Test Summary) */}
       <div
         className="flex items-center justify-between flex-wrap gap-3 pb-6 border-b"
         style={{ borderColor: theme.border }}
@@ -206,8 +206,8 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 result.accuracy >= 95
                   ? '#10b981'
                   : result.accuracy >= 85
-                  ? theme.accent
-                  : '#f43f5e',
+                    ? theme.accent
+                    : '#f43f5e',
             }}
           >
             {result.accuracy}%
@@ -393,9 +393,8 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
               {/* Tooltip */}
               {hoveredPoint !== null && pointsWpm[hoveredPoint] && (
                 <g
-                  transform={`translate(${pointsWpm[hoveredPoint].x}, ${
-                    pointsWpm[hoveredPoint].y - 30
-                  })`}
+                  transform={`translate(${pointsWpm[hoveredPoint].x}, ${pointsWpm[hoveredPoint].y - 30
+                    })`}
                 >
                   <rect
                     x="-45"
@@ -500,7 +499,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 </div>
               ))}
             </div>
-            ) : (
+          ) : (
             <div className="text-xs opacity-80 py-3 flex items-center gap-2 text-emerald-400">
               <Check className="w-4 h-4" />
               <span>Flawless accuracy! Zero recurring typo keys detected.</span>
