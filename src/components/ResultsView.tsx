@@ -526,3 +526,17 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           <Play className="w-4 h-4 fill-current" />
           <span>Next Test (Tab / Enter)</span>
         </button>
+
+        <button
+          id="btn-repeat-test"
+          onClick={onRepeatTest}
+          className="px-5 py-3 rounded-xl text-sm font-medium flex items-center gap-2 transition-all hover:opacity-100 opacity-85 cursor-pointer shadow-sm"
+          style={{
+            backgroundColor: theme.bg,
+            border: `1px solid ${theme.border}`,
+            color: theme.text,
+          }}
+        >
+          <RotateCcw className="w-4 h-4" />
+          <span>Repeat Same Text</span>
+        </button>
