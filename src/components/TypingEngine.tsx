@@ -116,3 +116,12 @@ const WordItem = memo<WordItemProps>(
             </span>
           );
         })}
+
+        {/* Caret at end of current word if user typed more characters */}
+        {isCurrent &&
+          isFocused &&
+          caretStyle !== 'off' &&
+          currentInputLength >= wordObj.characters.length && (
+            <span
+              className={`inline-block pointer-events-none ${
+                caretStyle === 'line'
