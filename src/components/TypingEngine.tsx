@@ -74,3 +74,13 @@ const WordItem = memo<WordItemProps>(
         {wordObj.characters.map((charObj, charIdx) => {
           let charColor = theme.charUntyped;
           let bgColor = 'transparent';
+
+          if (charObj.status === 'correct') {
+            charColor = theme.charCorrect;
+          } else if (charObj.status === 'incorrect') {
+            charColor = blindMode ? theme.charUntyped : theme.charIncorrect;
+            bgColor = blindMode ? 'transparent' : 'rgba(244, 63, 94, 0.18)';
+          } else if (charObj.status === 'extra') {
+            charColor = blindMode ? theme.charUntyped : theme.charExtra;
+            bgColor = blindMode ? 'transparent' : 'rgba(225, 29, 72, 0.25)';
+          }
