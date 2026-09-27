@@ -462,3 +462,28 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         totalAttempts > 0
           ? Number(((stats.correctKeystrokes / totalAttempts) * 100).toFixed(1))
           : 100;
+
+           if (settings.mode === 'time') {
+        const remaining = Math.max(
+          0,
+          Math.ceil(settings.timeOption - elapsedSecExact)
+        );
+
+        if (elapsedSecExact >= settings.timeOption) {
+          clearInterval(intervalId);
+          completeTest();
+          return;
+        }
+      }
+
+      if (wholeSec > lastRecordedSecRef.current) {
+        timelineRef.current.push({
+          second: wholeSec,
+          wpm: currentWpm,
+          rawWpm: currentRawWpm,
+          accuracy: currentAcc,
+          errors: stats.errorKeystrokes,
+          keystrokes: stats.totalKeystrokes,
+        });
+        lastRecordedSecRef.current = wholeSec;
+      }
