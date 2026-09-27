@@ -532,3 +532,32 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     nextCorrectKeys: number,
     nextErrorKeys: number,
     nextTotalKeys: number
+    ) => {
+    const now = Date.now();
+    const startTime = startTimeRef.current || now;
+    const elapsedSec = Math.max(0.1, (now - startTime) / 1000);
+    const durationMins = elapsedSec / 60;
+    const netCorrect = computeNetCorrectChars(nextStates, nextWordIndex, nextInput);
+    const currentWpm = Math.max(0, Math.round(netCorrect / 5 / durationMins));
+    const currentRawWpm = Math.max(0, Math.round(nextTotalKeys / 5 / durationMins));
+    const totalAttempts = nextCorrectKeys + nextErrorKeys;
+    const currentAcc =
+      totalAttempts > 0
+        ? Number(((nextCorrectKeys / totalAttempts) * 100).toFixed(1))
+        : 100;
+    const remaining =
+      settings.mode === 'time'
+        ? Math.max(0, Math.ceil(settings.timeOption - elapsedSec))
+        : undefined;
+
+    onLiveUpdate({
+      wpm: currentWpm,
+      rawWpm: currentRawWpm,
+      accuracy: currentAcc,
+      errorsCount: nextErrorKeys,
+      timeRemaining: remaining,
+      currentWordIndex: nextWordIndex,
+      totalWords: wordsList.length,
+      isTestActive: true,
+    });
+  };
