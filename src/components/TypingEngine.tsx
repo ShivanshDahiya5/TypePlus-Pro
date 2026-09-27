@@ -192,3 +192,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
 
   const inputRef = useRef<HTMLInputElement>(null);
   const wordsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Calculate total net correct characters fast
+  const computeNetCorrectChars = useCallback(
+    (states: WordState[], activeIdx: number, activeInput: string): number => {
+      let count = 0;
+      for (let i = 0; i < states.length; i++) {
+        const w = states[i];
+        if (i < activeIdx) {
+          let wordAllCorrect = true;
+          for (let j = 0; j < w.original.length; j++) {
+            if (w.characters[j]?.status === 'correct') {
+              count += 1;
+            } else {
+              wordAllCorrect = false;
+            }
+          }
