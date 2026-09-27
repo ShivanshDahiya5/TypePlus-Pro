@@ -561,3 +561,21 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       isTestActive: true,
     });
   };
+
+    // Character Typed
+  const executeCharInput = useCallback(
+    (charTyped: string) => {
+      if (isFinished) return;
+      const currentWord = wordStates[currentWordIdx];
+      if (!currentWord) return;
+
+      if (!hasStarted) {
+        setHasStarted(true);
+        startTimeRef.current = Date.now();
+        lastRecordedSecRef.current = 0;
+      }
+
+      const nextInput = currentInput + charTyped;
+      setCurrentInput(nextInput);
+      const nextTotal = totalKeystrokes + 1;
+      setTotalKeystrokes(nextTotal);
