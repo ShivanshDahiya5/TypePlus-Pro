@@ -241,3 +241,16 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       totalKeystrokes,
       currentWordIdx,
     };
+    }, [
+    wordStates,
+    currentWordIdx,
+    currentInput,
+    correctCharsCount,
+    incorrectCharsCount,
+    extraCharsCount,
+    missedCharsCount,
+    correctKeystrokes,
+    errorKeystrokes,
+    totalKeystrokes,
+    computeNetCorrectChars,
+  ]);
