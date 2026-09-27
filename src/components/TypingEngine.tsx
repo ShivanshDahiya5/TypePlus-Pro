@@ -366,3 +366,43 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         consistency = Math.max(0, Math.min(100, Math.round(100 - cv)));
       }
     }
+
+    // Problem keys
+    const problemKeys = (
+      Object.entries(keyStatsRef.current) as [string, { total: number; mistakes: number }][]
+    )
+      .filter(([_, stat]) => stat.mistakes > 0)
+      .map(([key, stat]) => ({
+        key,
+        errorRate: Math.round((stat.mistakes / stat.total) * 100),
+        count: stat.mistakes,
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 6);
+
+    let modeDescription = `${settings.mode}`;
+    if (settings.mode === 'time') modeDescription = `time ${settings.timeOption}s`;
+    if (settings.mode === 'words') modeDescription = `words ${settings.wordOption}`;
+    if (settings.mode === 'quote') modeDescription = `quote (${settings.quoteLength})`;
+    if (settings.mode === 'custom') modeDescription = `custom`;
+
+    const result: TestResult = {
+      id: `test_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      timestamp: Date.now(),
+      mode: settings.mode,
+      modeDescription,
+      wpm,
+      rawWpm,
+      cpm,
+      accuracy,
+      consistency,
+      durationSeconds: displayDuration,
+      correctChars: stats.netCorrectChars,
+      incorrectChars: stats.incorrectCharsCount,
+      extraChars: stats.extraCharsCount,
+      missedChars: stats.missedCharsCount,
+      totalKeystrokes: stats.totalKeystrokes,
+      timeline,
+      problemKeys,
+      quoteAuthor,
+    };
