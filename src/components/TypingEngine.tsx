@@ -310,3 +310,29 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       inputRef.current?.focus();
     }, 20);
   }, [wordsList, settings, onLiveUpdate]);
+
+  // Complete test
+  const completeTest = useCallback(() => {
+    if (isFinished) return;
+    setIsFinished(true);
+
+    playCompletionSound(soundVolume);
+
+    const now = Date.now();
+    const startTime = startTimeRef.current || now;
+    const exactDuration = Math.max(0.5, (now - startTime) / 1000);
+    const durationMinutes = exactDuration / 60;
+    const stats = statsRef.current;
+
+    const displayDuration =
+      settings.mode === 'time' ? settings.timeOption : Math.max(1, Math.round(exactDuration));
+
+    const totalAttempts = stats.correctKeystrokes + stats.errorKeystrokes;
+    const accuracy =
+      totalAttempts > 0
+        ? Number(((stats.correctKeystrokes / totalAttempts) * 100).toFixed(1))
+        : 100;
+
+    const wpm = Math.max(0, Math.round(stats.netCorrectChars / 5 / durationMinutes));
+    const rawWpm = Math.max(0, Math.round(stats.totalKeystrokes / 5 / durationMinutes));
+    const cpm = Math.round(stats.netCorrectChars / durationMinutes);
