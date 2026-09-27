@@ -432,3 +432,33 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       }
     }
   }, []);
+
+  // Countdown and telemetry tick timer
+  useEffect(() => {
+    if (!hasStarted || isFinished) return;
+
+    if (!startTimeRef.current) {
+      startTimeRef.current = Date.now();
+    }
+
+    const intervalId = setInterval(() => {
+      const now = Date.now();
+      const startTime = startTimeRef.current || now;
+      const elapsedSecExact = (now - startTime) / 1000;
+      const wholeSec = Math.floor(elapsedSecExact);
+
+      const stats = statsRef.current;
+      const durationMins = Math.max(0.016, elapsedSecExact / 60);
+      const currentWpm = Math.max(
+        0,
+        Math.round(stats.netCorrectChars / 5 / durationMins)
+      );
+      const currentRawWpm = Math.max(
+        0,
+        Math.round(stats.totalKeystrokes / 5 / durationMins)
+      );
+      const totalAttempts = stats.correctKeystrokes + stats.errorKeystrokes;
+      const currentAcc =
+        totalAttempts > 0
+          ? Number(((stats.correctKeystrokes / totalAttempts) * 100).toFixed(1))
+          : 100;
