@@ -406,3 +406,29 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       problemKeys,
       quoteAuthor,
     };
+
+    onFinishTest(result);
+  }, [isFinished, settings, quoteAuthor, soundVolume, onFinishTest]);
+
+  // Smooth scroll active word when needed without thrashing
+  const checkAutoScroll = useCallback((wordIndex: number) => {
+    const container = wordsContainerRef.current;
+    if (!container) return;
+    const currentWordEl = container.querySelector(
+      `[data-word-idx="${wordIndex}"]`
+    ) as HTMLElement;
+    if (currentWordEl) {
+      const wordOffsetTop = currentWordEl.offsetTop;
+      if (wordOffsetTop > 60) {
+        container.scrollTo({
+          top: wordOffsetTop - 45,
+          behavior: 'smooth',
+        });
+      } else {
+        container.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, []);
