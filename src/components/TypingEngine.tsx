@@ -290,3 +290,23 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       totalKeystrokes: 0,
       currentWordIdx: 0,
     };
+
+    onLiveUpdate({
+      wpm: 0,
+      rawWpm: 0,
+      accuracy: 100,
+      errorsCount: 0,
+      timeRemaining: settings.mode === 'time' ? settings.timeOption : undefined,
+      currentWordIndex: 0,
+      totalWords: wordsList.length,
+      isTestActive: false,
+    });
+
+    if (wordsContainerRef.current) {
+      wordsContainerRef.current.scrollTop = 0;
+    }
+
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 20);
+  }, [wordsList, settings, onLiveUpdate]);
