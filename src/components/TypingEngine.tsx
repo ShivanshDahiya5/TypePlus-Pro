@@ -226,3 +226,18 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     },
     []
   );
+
+  // Synchronize statsRef
+  useEffect(() => {
+    const netCorrect = computeNetCorrectChars(wordStates, currentWordIdx, currentInput);
+    statsRef.current = {
+      netCorrectChars: netCorrect,
+      correctCharsCount,
+      incorrectCharsCount,
+      extraCharsCount,
+      missedCharsCount,
+      correctKeystrokes,
+      errorKeystrokes,
+      totalKeystrokes,
+      currentWordIdx,
+    };
