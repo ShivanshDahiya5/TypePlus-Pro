@@ -208,3 +208,21 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
               wordAllCorrect = false;
             }
           }
+          if (w.characters.some((c) => c.status === 'extra')) {
+            wordAllCorrect = false;
+          }
+          if (wordAllCorrect) {
+            count += 1; // space delimiter
+          }
+        } else if (i === activeIdx) {
+          for (let j = 0; j < activeInput.length && j < w.original.length; j++) {
+            if (activeInput[j] === w.original[j]) {
+              count += 1;
+            }
+          }
+        }
+      }
+      return count;
+    },
+    []
+  );
