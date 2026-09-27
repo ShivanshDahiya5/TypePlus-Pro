@@ -254,3 +254,39 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     totalKeystrokes,
     computeNetCorrectChars,
   ]);
+
+  // Initialize test states on wordsList change
+  useEffect(() => {
+    const states: WordState[] = wordsList.map((w, idx) => ({
+      original: w,
+      characters: w.split('').map((c) => ({ char: c, status: 'untyped' })),
+      isCurrent: idx === 0,
+      isComplete: false,
+    }));
+    setWordStates(states);
+    setCurrentWordIdx(0);
+    setCurrentInput('');
+    setHasStarted(false);
+    setIsFinished(false);
+    setCorrectCharsCount(0);
+    setIncorrectCharsCount(0);
+    setExtraCharsCount(0);
+    setMissedCharsCount(0);
+    setCorrectKeystrokes(0);
+    setErrorKeystrokes(0);
+    setTotalKeystrokes(0);
+    startTimeRef.current = null;
+    lastRecordedSecRef.current = 0;
+    timelineRef.current = [];
+    keyStatsRef.current = {};
+    statsRef.current = {
+      netCorrectChars: 0,
+      correctCharsCount: 0,
+      incorrectCharsCount: 0,
+      extraCharsCount: 0,
+      missedCharsCount: 0,
+      correctKeystrokes: 0,
+      errorKeystrokes: 0,
+      totalKeystrokes: 0,
+      currentWordIdx: 0,
+    };
