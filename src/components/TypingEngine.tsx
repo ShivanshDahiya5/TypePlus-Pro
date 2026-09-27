@@ -579,3 +579,31 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       setCurrentInput(nextInput);
       const nextTotal = totalKeystrokes + 1;
       setTotalKeystrokes(nextTotal);
+
+      const targetChar = currentWord.original[currentInput.length];
+      const isCorrect = targetChar === charTyped;
+
+      trackKey(targetChar || charTyped, !isCorrect);
+
+      let nextCorrectKeys = correctKeystrokes;
+      let nextErrorKeys = errorKeystrokes;
+      let nextCorrect = correctCharsCount;
+      let nextIncorrect = incorrectCharsCount;
+      let nextExtra = extraCharsCount;
+
+      if (isCorrect) {
+        nextCorrect = correctCharsCount + 1;
+        setCorrectCharsCount(nextCorrect);
+        nextCorrectKeys = correctKeystrokes + 1;
+        setCorrectKeystrokes(nextCorrectKeys);
+      } else {
+        nextErrorKeys = errorKeystrokes + 1;
+        setErrorKeystrokes(nextErrorKeys);
+        if (currentInput.length < currentWord.original.length) {
+          nextIncorrect = incorrectCharsCount + 1;
+          setIncorrectCharsCount(nextIncorrect);
+        } else {
+          nextExtra = extraCharsCount + 1;
+          setExtraCharsCount(nextExtra);
+        }
+      }
