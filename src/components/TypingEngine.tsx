@@ -487,3 +487,29 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         });
         lastRecordedSecRef.current = wholeSec;
       }
+
+      onLiveUpdate({
+        wpm: currentWpm,
+        rawWpm: currentRawWpm,
+        accuracy: currentAcc,
+        errorsCount: stats.errorKeystrokes,
+        timeRemaining:
+          settings.mode === 'time'
+            ? Math.max(0, Math.ceil(settings.timeOption - elapsedSecExact))
+            : undefined,
+        currentWordIndex: stats.currentWordIdx,
+        totalWords: wordsList.length,
+        isTestActive: true,
+      });
+    }, 150);
+
+    return () => clearInterval(intervalId);
+  }, [
+    hasStarted,
+    isFinished,
+    settings.mode,
+    settings.timeOption,
+    completeTest,
+    wordsList.length,
+    onLiveUpdate,
+  ]);
