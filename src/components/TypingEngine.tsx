@@ -513,3 +513,22 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     wordsList.length,
     onLiveUpdate,
   ]);
+
+  const trackKey = (char: string, isError: boolean) => {
+    const k = char.toLowerCase();
+    if (!keyStatsRef.current[k]) {
+      keyStatsRef.current[k] = { total: 0, mistakes: 0 };
+    }
+    keyStatsRef.current[k].total += 1;
+    if (isError) {
+      keyStatsRef.current[k].mistakes += 1;
+    }
+  };
+
+  const emitLiveUpdateNow = (
+    nextStates: WordState[],
+    nextWordIndex: number,
+    nextInput: string,
+    nextCorrectKeys: number,
+    nextErrorKeys: number,
+    nextTotalKeys: number
