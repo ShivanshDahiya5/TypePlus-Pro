@@ -336,3 +336,33 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     const wpm = Math.max(0, Math.round(stats.netCorrectChars / 5 / durationMinutes));
     const rawWpm = Math.max(0, Math.round(stats.totalKeystrokes / 5 / durationMinutes));
     const cpm = Math.round(stats.netCorrectChars / durationMinutes);
+
+    const finalSec = Math.max(1, Math.round(exactDuration));
+    if (
+      timelineRef.current.length === 0 ||
+      timelineRef.current[timelineRef.current.length - 1].second < finalSec
+    ) {
+      timelineRef.current.push({
+        second: finalSec,
+        wpm,
+        rawWpm,
+        accuracy,
+        errors: stats.errorKeystrokes,
+        keystrokes: stats.totalKeystrokes,
+      });
+    }
+
+    // Consistency calculations
+    const timeline = timelineRef.current;
+    let consistency = 100;
+    if (timeline.length > 2) {
+      const wpms = timeline.map((s) => s.wpm);
+      const mean = wpms.reduce((a, b) => a + b, 0) / wpms.length;
+      if (mean > 0) {
+        const variance =
+          wpms.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / wpms.length;
+        const stdDev = Math.sqrt(variance);
+        const cv = (stdDev / mean) * 100;
+        consistency = Math.max(0, Math.min(100, Math.round(100 - cv)));
+      }
+    }
