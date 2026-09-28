@@ -810,3 +810,27 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         );
         return;
       }
+
+      if (currentInput.length > 0) {
+        const nextInput = currentInput.slice(0, -1);
+        setCurrentInput(nextInput);
+
+        const updated = [...wordStates];
+        const chars = [...updated[currentWordIdx].characters];
+        let nextExtra = extraCharsCount;
+
+        if (currentInput.length > currentWord.original.length) {
+          chars.pop();
+          nextExtra = Math.max(0, extraCharsCount - 1);
+          setExtraCharsCount(nextExtra);
+        } else {
+          const charIdx = currentInput.length - 1;
+          if (chars[charIdx]) {
+            chars[charIdx] = { ...chars[charIdx], status: 'untyped' };
+          }
+        }
+
+        updated[currentWordIdx] = {
+          ...updated[currentWordIdx],
+          characters: chars,
+        };
