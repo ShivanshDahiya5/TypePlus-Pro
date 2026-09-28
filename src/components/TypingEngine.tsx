@@ -715,3 +715,21 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
 
     let nextCorrectKeys = correctKeystrokes;
     let nextErrorKeys = errorKeystrokes;
+
+    if (wordCorrect && currentInput === origWord) {
+      nextCorrectKeys = correctKeystrokes + 1;
+      setCorrectKeystrokes(nextCorrectKeys);
+      trackKey('space', false);
+    } else {
+      const penalty = addedMissed > 0 ? addedMissed : 1;
+      nextErrorKeys = errorKeystrokes + penalty;
+      setErrorKeystrokes(nextErrorKeys);
+      trackKey('space', true);
+    }
+
+    updated[currentWordIdx] = {
+      ...updated[currentWordIdx],
+      characters: finalChars,
+      isCurrent: false,
+      isComplete: true,
+    };
