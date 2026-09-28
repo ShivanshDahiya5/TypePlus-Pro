@@ -748,4 +748,22 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         nextTotal
       );
       setTimeout(() => completeTest(), 0);
-      
+      } else {
+      const nextIdx = currentWordIdx + 1;
+      updated[nextIdx] = {
+        ...updated[nextIdx],
+        isCurrent: true,
+      };
+      setWordStates(updated);
+      setCurrentWordIdx(nextIdx);
+      setCurrentInput('');
+      checkAutoScroll(nextIdx);
+      emitLiveUpdateNow(
+        updated,
+        nextIdx,
+        '',
+        nextCorrectKeys,
+        nextErrorKeys,
+        nextTotal
+      );
+    }
