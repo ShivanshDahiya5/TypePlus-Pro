@@ -684,3 +684,18 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     const origWord = currentWord.original;
     let wordCorrect = true;
     let addedMissed = 0;
+
+    const finalChars = origWord.split('').map((c, i) => {
+      if (i < currentInput.length) {
+        const isMatch = currentInput[i] === c;
+        if (!isMatch) wordCorrect = false;
+        return {
+          char: c,
+          status: isMatch ? ('correct' as const) : ('incorrect' as const),
+        };
+      } else {
+        wordCorrect = false;
+        addedMissed += 1;
+        return { char: c, status: 'incorrect' as const };
+      }
+    });
