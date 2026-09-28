@@ -626,3 +626,18 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           });
         }
       }
+
+      updated[currentWordIdx] = {
+        ...updated[currentWordIdx],
+        characters: chars,
+      };
+      setWordStates(updated);
+
+      emitLiveUpdateNow(
+        updated,
+        currentWordIdx,
+        nextInput,
+        nextCorrectKeys,
+        nextErrorKeys,
+        nextTotal
+      );
