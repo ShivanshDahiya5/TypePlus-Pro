@@ -942,3 +942,21 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     if (ignoredKeys.includes(e.key) || (e.key.startsWith('F') && e.key.length > 1)) {
       return;
     }
+
+    if (e.key === 'Backspace') {
+      e.preventDefault();
+      executeBackspace(e.ctrlKey || e.metaKey);
+      return;
+    }
+
+    if (e.key === ' ') {
+      e.preventDefault();
+      executeSpace();
+      return;
+    }
+
+    if (e.key.length === 1) {
+      e.preventDefault();
+      executeCharInput(e.key);
+    }
+  };
