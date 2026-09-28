@@ -895,3 +895,50 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
   // Desktop physical keyboard listener
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (isFinished) return;
+
+    if (e.key === 'Tab' || e.key === 'Escape') {
+      e.preventDefault();
+      onRestart();
+      return;
+    }
+
+    if (e.key === 'Unidentified' || e.keyCode === 229 || e.key === 'Process') {
+      return;
+    }
+
+    const ignoredKeys = [
+      'Shift',
+      'Control',
+      'Alt',
+      'Meta',
+      'CapsLock',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowDown',
+      'PageUp',
+      'PageDown',
+      'Home',
+      'End',
+      'Insert',
+      'Delete',
+      'ContextMenu',
+      'NumLock',
+      'ScrollLock',
+      'Pause',
+      'F1',
+      'F2',
+      'F3',
+      'F4',
+      'F5',
+      'F6',
+      'F7',
+      'F8',
+      'F9',
+      'F10',
+      'F11',
+      'F12',
+    ];
+    if (ignoredKeys.includes(e.key) || (e.key.startsWith('F') && e.key.length > 1)) {
+      return;
+    }
