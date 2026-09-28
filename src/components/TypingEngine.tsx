@@ -670,3 +670,17 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       completeTest,
     ]
   );
+
+  // Space Pressed (advance word)
+  const executeSpace = useCallback(() => {
+    if (isFinished) return;
+    const currentWord = wordStates[currentWordIdx];
+    if (!currentWord || currentInput.length === 0) return;
+
+    const nextTotal = totalKeystrokes + 1;
+    setTotalKeystrokes(nextTotal);
+
+    const updated = [...wordStates];
+    const origWord = currentWord.original;
+    let wordCorrect = true;
+    let addedMissed = 0;
