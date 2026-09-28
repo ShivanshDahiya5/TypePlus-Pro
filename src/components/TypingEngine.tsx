@@ -607,3 +607,22 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           setExtraCharsCount(nextExtra);
         }
       }
+
+      playKeySound(soundType, soundVolume, !isCorrect, false);
+
+      const updated = [...wordStates];
+      const chars = [...updated[currentWordIdx].characters];
+
+      if (currentInput.length < currentWord.original.length) {
+        chars[currentInput.length] = {
+          char: currentWord.original[currentInput.length],
+          status: isCorrect ? 'correct' : 'incorrect',
+        };
+      } else {
+        if (chars.length < currentWord.original.length + 10) {
+          chars.push({
+            char: charTyped,
+            status: 'extra',
+          });
+        }
+      }
