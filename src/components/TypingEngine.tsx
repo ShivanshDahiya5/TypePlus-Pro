@@ -767,3 +767,23 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         nextTotal
       );
     }
+    }, [
+    isFinished,
+    wordStates,
+    currentWordIdx,
+    currentInput,
+    totalKeystrokes,
+    correctKeystrokes,
+    errorKeystrokes,
+    soundType,
+    soundVolume,
+    completeTest,
+    checkAutoScroll,
+  ]);
+
+  // Backspace Pressed
+  const executeBackspace = useCallback(
+    (isWordDelete = false) => {
+      if (isFinished || !hasStarted) return;
+      const currentWord = wordStates[currentWordIdx];
+      if (!currentWord) return;
