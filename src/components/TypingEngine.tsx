@@ -860,3 +860,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
             isCurrent: true,
             isComplete: false,
           };
+          setWordStates(updated);
+          setCurrentWordIdx(nextIdx);
+          setCurrentInput(reconstructedInput);
+          checkAutoScroll(nextIdx);
+          playKeySound(soundType, soundVolume);
+          emitLiveUpdateNow(
+            updated,
+            nextIdx,
+            reconstructedInput,
+            correctKeystrokes,
+            errorKeystrokes,
+            totalKeystrokes
+          );
+        }
+      }
+    },
