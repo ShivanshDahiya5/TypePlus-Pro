@@ -834,3 +834,29 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           ...updated[currentWordIdx],
           characters: chars,
         };
+        setWordStates(updated);
+        playKeySound(soundType, soundVolume);
+        emitLiveUpdateNow(
+          updated,
+          currentWordIdx,
+          nextInput,
+          correctKeystrokes,
+          errorKeystrokes,
+          totalKeystrokes
+        );
+      } else if (currentWordIdx > 0) {
+        const prevWord = wordStates[currentWordIdx - 1];
+        const prevHadErrors = prevWord.characters.some(
+          (c) => c.status === 'incorrect' || c.status === 'extra'
+        );
+
+        if (prevHadErrors) {
+          const updated = [...wordStates];
+          updated[currentWordIdx] = { ...updated[currentWordIdx], isCurrent: false };
+          const nextIdx = currentWordIdx - 1;
+          const reconstructedInput = prevWord.characters.map((c) => c.char).join('');
+          updated[nextIdx] = {
+            ...updated[nextIdx],
+            isCurrent: true,
+            isComplete: false,
+          };
