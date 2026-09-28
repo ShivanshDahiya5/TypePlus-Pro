@@ -641,3 +641,32 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         nextErrorKeys,
         nextTotal
       );
+
+      // Auto-complete if finished final word perfectly
+      if (
+        currentWordIdx === wordStates.length - 1 &&
+        nextInput.length === currentWord.original.length &&
+        nextInput === currentWord.original
+      ) {
+        updated[currentWordIdx].isComplete = true;
+        setWordStates(updated);
+        setTimeout(() => completeTest(), 0);
+      }
+    },
+    [
+      isFinished,
+      wordStates,
+      currentWordIdx,
+      hasStarted,
+      currentInput,
+      totalKeystrokes,
+      correctKeystrokes,
+      errorKeystrokes,
+      correctCharsCount,
+      incorrectCharsCount,
+      extraCharsCount,
+      soundType,
+      soundVolume,
+      completeTest,
+    ]
+  );
