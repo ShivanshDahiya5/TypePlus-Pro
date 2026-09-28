@@ -876,3 +876,22 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         }
       }
     },
+    [
+      isFinished,
+      hasStarted,
+      wordStates,
+      currentWordIdx,
+      currentInput,
+      extraCharsCount,
+      correctKeystrokes,
+      errorKeystrokes,
+      totalKeystrokes,
+      soundType,
+      soundVolume,
+      checkAutoScroll,
+    ]
+  );
+
+  // Desktop physical keyboard listener
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (isFinished) return;
