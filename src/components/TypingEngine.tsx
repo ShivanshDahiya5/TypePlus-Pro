@@ -733,3 +733,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       isCurrent: false,
       isComplete: true,
     };
+
+    playKeySound(soundType, soundVolume, !wordCorrect, true);
+
+    if (currentWordIdx + 1 >= wordStates.length) {
+      setWordStates(updated);
+      setCurrentInput('');
+      emitLiveUpdateNow(
+        updated,
+        currentWordIdx + 1,
+        '',
+        nextCorrectKeys,
+        nextErrorKeys,
+        nextTotal
+      );
+      setTimeout(() => completeTest(), 0);
+      
