@@ -787,3 +787,26 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       if (isFinished || !hasStarted) return;
       const currentWord = wordStates[currentWordIdx];
       if (!currentWord) return;
+
+      if (isWordDelete) {
+        setCurrentInput('');
+        const updated = [...wordStates];
+        updated[currentWordIdx] = {
+          ...updated[currentWordIdx],
+          characters: updated[currentWordIdx].original.split('').map((c) => ({
+            char: c,
+            status: 'untyped',
+          })),
+        };
+        setWordStates(updated);
+        playKeySound(soundType, soundVolume);
+        emitLiveUpdateNow(
+          updated,
+          currentWordIdx,
+          '',
+          correctKeystrokes,
+          errorKeystrokes,
+          totalKeystrokes
+        );
+        return;
+      }
