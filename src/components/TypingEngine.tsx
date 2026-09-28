@@ -699,3 +699,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         return { char: c, status: 'incorrect' as const };
       }
     });
+
+    if (addedMissed > 0) {
+      setMissedCharsCount((m) => m + addedMissed);
+    }
+
+    if (currentInput.length > origWord.length) {
+      wordCorrect = false;
+      const extras = currentInput.slice(origWord.length).split('').map((c) => ({
+        char: c,
+        status: 'extra' as const,
+      }));
+      finalChars.push(...extras);
+    }
+
+    let nextCorrectKeys = correctKeystrokes;
+    let nextErrorKeys = errorKeystrokes;
