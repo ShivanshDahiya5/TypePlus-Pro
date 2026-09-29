@@ -64,12 +64,11 @@ const WordItem = memo<WordItemProps>(
       wordObj.isComplete &&
       wordObj.characters.some((c) => c.status === 'incorrect' || c.status === 'extra');
 
-      return (
+    return (
       <div
         data-word-idx={wordIdx}
-        className={`relative inline-flex items-center transition-opacity select-none ${
-          isCurrent ? 'opacity-100 font-medium' : 'opacity-80'
-        } ${hasError ? 'border-b-2 border-rose-500/80' : ''}`}
+        className={`relative inline-flex items-center transition-opacity select-none ${isCurrent ? 'opacity-100 font-medium' : 'opacity-80'
+          } ${hasError ? 'border-b-2 border-rose-500/80' : ''}`}
       >
         {wordObj.characters.map((charObj, charIdx) => {
           let charColor = theme.charUntyped;
@@ -97,15 +96,14 @@ const WordItem = memo<WordItemProps>(
                 backgroundColor: bgColor,
               }}
             >
-                {isCaretHere && (
+              {isCaretHere && (
                 <span
-                  className={`absolute left-0 pointer-events-none z-20 ${
-                    caretStyle === 'line'
+                  className={`absolute left-0 pointer-events-none z-20 ${caretStyle === 'line'
                       ? 'top-0 bottom-0 w-[2.5px] rounded-full'
                       : caretStyle === 'block'
-                      ? 'inset-0 opacity-40 rounded-xs'
-                      : 'bottom-0 left-0 right-0 h-[3px] rounded-full'
-                  }`}
+                        ? 'inset-0 opacity-40 rounded-xs'
+                        : 'bottom-0 left-0 right-0 h-[3px] rounded-full'
+                    }`}
                   style={{
                     backgroundColor: theme.caret,
                     boxShadow: `0 0 10px ${theme.caret}`,
@@ -123,13 +121,12 @@ const WordItem = memo<WordItemProps>(
           caretStyle !== 'off' &&
           currentInputLength >= wordObj.characters.length && (
             <span
-              className={`inline-block pointer-events-none ${
-                caretStyle === 'line'
-                ? 'w-[2.5px] h-[1.2em] rounded-full align-middle'
+              className={`inline-block pointer-events-none ${caretStyle === 'line'
+                  ? 'w-[2.5px] h-[1.2em] rounded-full align-middle'
                   : caretStyle === 'block'
-                  ? 'w-[0.6em] h-[1.2em] opacity-40 align-middle rounded-xs'
-                  : 'w-[0.6em] h-[3px] rounded-full align-bottom'
-              }`}
+                    ? 'w-[0.6em] h-[1.2em] opacity-40 align-middle rounded-xs'
+                    : 'w-[0.6em] h-[3px] rounded-full align-bottom'
+                }`}
               style={{
                 backgroundColor: theme.caret,
                 boxShadow: `0 0 10px ${theme.caret}`,
@@ -156,7 +153,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
   onLiveUpdate,
   onRestart,
 }) => {
-    // Core typing state
+  // Core typing state
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [currentInput, setCurrentInput] = useState('');
   const [isFocused, setIsFocused] = useState(true);
@@ -241,7 +238,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       totalKeystrokes,
       currentWordIdx,
     };
-    }, [
+  }, [
     wordStates,
     currentWordIdx,
     currentInput,
@@ -463,7 +460,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           ? Number(((stats.correctKeystrokes / totalAttempts) * 100).toFixed(1))
           : 100;
 
-           if (settings.mode === 'time') {
+      if (settings.mode === 'time') {
         const remaining = Math.max(
           0,
           Math.ceil(settings.timeOption - elapsedSecExact)
@@ -532,7 +529,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     nextCorrectKeys: number,
     nextErrorKeys: number,
     nextTotalKeys: number
-    ) => {
+  ) => {
     const now = Date.now();
     const startTime = startTimeRef.current || now;
     const elapsedSec = Math.max(0.1, (now - startTime) / 1000);
@@ -562,7 +559,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     });
   };
 
-    // Character Typed
+  // Character Typed
   const executeCharInput = useCallback(
     (charTyped: string) => {
       if (isFinished) return;
@@ -748,7 +745,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         nextTotal
       );
       setTimeout(() => completeTest(), 0);
-      } else {
+    } else {
       const nextIdx = currentWordIdx + 1;
       updated[nextIdx] = {
         ...updated[nextIdx],
@@ -767,7 +764,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         nextTotal
       );
     }
-    }, [
+  }, [
     isFinished,
     wordStates,
     currentWordIdx,
@@ -1055,7 +1052,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
             <span>Click or Tap to start typing</span>
           </button>
           <p
-          className="mt-2 text-xs font-mono opacity-60"
+            className="mt-2 text-xs font-mono opacity-60"
             style={{ color: theme.textMuted }}
           >
             Touch screen & physical keyboards supported
@@ -1099,7 +1096,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         </div>
       )}
 
-{/* Footer shortcut helper & Mobile Restart button */}
+      {/* Footer shortcut helper & Mobile Restart button */}
       <div
         className="mt-6 pt-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono opacity-80 border-t"
         style={{ borderColor: theme.border, color: theme.textMuted }}
