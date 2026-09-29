@@ -972,3 +972,18 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         if (char === ' ') {
           executeSpace();
         } else {
+          executeCharInput(char);
+        }
+      }
+    } else if (newVal.length < currentInput.length) {
+      const deletions = currentInput.length - newVal.length;
+      for (let i = 0; i < deletions; i++) {
+        executeBackspace(false);
+      }
+    }
+  };
+
+  const triggerFocus = useCallback(() => {
+    inputRef.current?.focus();
+    setIsFocused(true);
+  }, []);
