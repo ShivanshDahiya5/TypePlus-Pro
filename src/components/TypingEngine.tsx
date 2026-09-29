@@ -1043,3 +1043,15 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           <button
             type="button"
             className="px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 font-mono text-sm font-semibold border transition-transform active:scale-95 cursor-pointer animate-pulse"
+            style={{
+              backgroundColor: theme.bg,
+              borderColor: theme.border,
+              color: theme.primary,
+              boxShadow: `0 4px 24px ${theme.primary}30`,
+            }}
+          >
+            <Keyboard className="w-5 h-5 sm:hidden" />
+            <MousePointer className="w-4 h-4 hidden sm:inline" />
+            <span>Click or Tap to start typing</span>
+          </button>
+          <p
