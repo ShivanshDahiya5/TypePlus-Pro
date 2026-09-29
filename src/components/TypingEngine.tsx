@@ -960,3 +960,15 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       executeCharInput(e.key);
     }
   };
+
+  // Mobile virtual keyboard onChange listener
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isFinished) return;
+    const newVal = e.target.value;
+
+    if (newVal.length > currentInput.length) {
+      const diff = newVal.slice(currentInput.length);
+      for (const char of diff) {
+        if (char === ' ') {
+          executeSpace();
+        } else {
