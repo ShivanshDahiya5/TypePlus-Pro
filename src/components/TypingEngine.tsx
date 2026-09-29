@@ -1055,3 +1055,20 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
             <span>Click or Tap to start typing</span>
           </button>
           <p
+          className="mt-2 text-xs font-mono opacity-60"
+            style={{ color: theme.textMuted }}
+          >
+            Touch screen & physical keyboards supported
+          </p>
+        </div>
+      )}
+
+      {/* Words Rendering Container */}
+      <div
+        ref={wordsContainerRef}
+        className={`relative font-mono font-normal tracking-wider overflow-y-auto max-h-48 sm:max-h-60 scroll-smooth pr-2 transition-all ${fontSizeClasses}`}
+        style={{
+          color: theme.charUntyped,
+          lineHeight: '1.9',
+        }}
+      >
