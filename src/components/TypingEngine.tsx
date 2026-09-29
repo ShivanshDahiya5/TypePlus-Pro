@@ -999,4 +999,18 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
       id="typing-area-container"
       onClick={triggerFocus}
       onTouchStart={triggerFocus}
-      
+      className="relative w-full max-w-4xl mx-auto rounded-3xl p-5 sm:p-10 select-none transition-all cursor-text focus:outline-none shadow-2xl backdrop-blur-md"
+      style={{
+        backgroundColor: theme.cardBg,
+        border: `1px solid ${theme.border}`,
+        minHeight: '260px',
+        touchAction: 'manipulation',
+      }}
+    >
+      {/* Invisible input capturing physical keystrokes & mobile soft keyboard */}
+      <input
+        ref={inputRef}
+        type="text"
+        value={currentInput}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
