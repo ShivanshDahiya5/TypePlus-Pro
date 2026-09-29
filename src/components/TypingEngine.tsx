@@ -1088,3 +1088,13 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           ))}
         </div>
       </div>
+
+      {/* Quote author attribution */}
+      {quoteAuthor && (
+        <div
+          className="mt-5 pt-3.5 border-t flex items-center justify-end text-xs font-mono italic opacity-75"
+          style={{ borderColor: theme.border, color: theme.textMuted }}
+        >
+          <span>— {quoteAuthor}</span>
+        </div>
+      )}
