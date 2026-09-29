@@ -1128,3 +1128,11 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
             enter
           </kbd>
         </div>
+        <div className="flex items-center gap-1.5 font-medium text-[11px]">
+          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+          <span>Zero-Latency 120fps Engine</span>
+        </div>
+      </div>
+    </div>
+  );
+};
