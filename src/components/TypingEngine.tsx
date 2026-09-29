@@ -1031,3 +1031,15 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         enterKeyHint="done"
         tabIndex={0}
       />
+
+      {/* Unfocused overlay prompt */}
+      {!isFocused && !isFinished && (
+        <div
+          className="absolute inset-0 z-30 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center transition-opacity cursor-pointer p-4 text-center"
+          style={{ backgroundColor: `${theme.cardBg}ee` }}
+          onClick={triggerFocus}
+          onTouchStart={triggerFocus}
+        >
+          <button
+            type="button"
+            className="px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 font-mono text-sm font-semibold border transition-transform active:scale-95 cursor-pointer animate-pulse"
