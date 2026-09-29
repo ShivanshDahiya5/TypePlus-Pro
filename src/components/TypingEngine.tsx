@@ -1123,3 +1123,8 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-black/30 border border-current text-[10px] shadow-xs">
             tab
           </kbd>
+          <span className="hidden sm:inline">+</span>
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-black/30 border border-current text-[10px] shadow-xs">
+            enter
+          </kbd>
+        </div>
