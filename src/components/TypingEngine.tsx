@@ -1104,4 +1104,11 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         className="mt-6 pt-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono opacity-80 border-t"
         style={{ borderColor: theme.border, color: theme.textMuted }}
       >
-        <div className="flex items-center gap-2"></div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRestart();
+            }}
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/20 hover:bg-black/35 active:scale-95 border transition-all text-xs cursor-pointer shadow-xs"
