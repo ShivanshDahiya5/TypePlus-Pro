@@ -1098,3 +1098,10 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           <span>— {quoteAuthor}</span>
         </div>
       )}
+
+{/* Footer shortcut helper & Mobile Restart button */}
+      <div
+        className="mt-6 pt-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono opacity-80 border-t"
+        style={{ borderColor: theme.border, color: theme.textMuted }}
+      >
+        <div className="flex items-center gap-2"></div>
