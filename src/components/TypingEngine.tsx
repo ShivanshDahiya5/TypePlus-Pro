@@ -1014,3 +1014,20 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
         value={currentInput}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        className="absolute opacity-0 inset-0 w-full h-full cursor-text text-base z-10"
+        style={{
+          fontSize: '16px',
+          caretColor: 'transparent',
+          pointerEvents: isFocused ? 'auto' : 'none',
+        }}
+        autoFocus
+        autoCapitalize="none"
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck="false"
+        inputMode="text"
+        enterKeyHint="done"
+        tabIndex={0}
+      />
