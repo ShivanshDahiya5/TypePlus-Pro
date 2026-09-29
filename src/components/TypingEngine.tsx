@@ -1112,3 +1112,14 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
               onRestart();
             }}
             className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/20 hover:bg-black/35 active:scale-95 border transition-all text-xs cursor-pointer shadow-xs"
+            style={{ borderColor: theme.border, color: theme.text }}
+            title="Restart test"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Restart</span>
+          </button>
+
+          <span className="hidden sm:inline text-[11px] opacity-60">or press</span>
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-black/30 border border-current text-[10px] shadow-xs">
+            tab
+          </kbd>
