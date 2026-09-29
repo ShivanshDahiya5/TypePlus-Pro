@@ -987,3 +987,16 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     inputRef.current?.focus();
     setIsFocused(true);
   }, []);
+
+  const fontSizeClasses = {
+    small: 'text-base sm:text-xl leading-relaxed',
+    medium: 'text-lg sm:text-2xl leading-relaxed',
+    large: 'text-xl sm:text-3xl leading-loose',
+  }[fontSize];
+
+  return (
+    <div
+      id="typing-area-container"
+      onClick={triggerFocus}
+      onTouchStart={triggerFocus}
+      
