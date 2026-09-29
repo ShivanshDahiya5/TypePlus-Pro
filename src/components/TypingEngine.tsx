@@ -1072,3 +1072,19 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
           lineHeight: '1.9',
         }}
       >
+        <div className="flex flex-wrap gap-x-[0.65em] gap-y-2.5">
+          {wordStates.map((wordObj, wordIdx) => (
+            <WordItem
+              key={wordIdx}
+              wordObj={wordObj}
+              wordIdx={wordIdx}
+              isCurrent={wordIdx === currentWordIdx}
+              theme={theme}
+              blindMode={blindMode}
+              caretStyle={caretStyle}
+              currentInputLength={currentInput.length}
+              isFocused={isFocused}
+            />
+          ))}
+        </div>
+      </div>
